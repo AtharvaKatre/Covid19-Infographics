@@ -1,0 +1,237 @@
+{%  extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% load plotly_dash %}
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!-- Live Meter -->
+<style>
+    .counter {
+        background-color: #f5f5f5;
+        padding: 20px 0;
+        border-radius: 5px;
+    }
+
+    .count-title {
+        font-size: 40px;
+        font-weight: normal;
+        margin-top: 10px;
+        margin-bottom: 0;
+        text-align: center;
+    }
+
+    .count-text {
+        font-size: 13px;
+        font-weight: normal;
+        margin-top: 10px;
+        margin-bottom: 0;
+        text-align: center;
+    }
+
+    .fa-2x {
+        margin: 0 auto;
+        float: none;
+        display: table;
+        color: #4ad1e5;
+    }
+</style>
+<div class="container text-center" style=' width: 100%; padding-bottom: 20px; padding-top: 15px;'>
+    <div class="row">
+
+
+        <!-- <div class="col text-center">
+            <h3><b>Live Worldwide Meter</b></h3>
+        </div> -->
+
+
+
+    </div>
+    <div class="row text-center">
+        <div class="col">
+            <div class="counter bg-info">
+                <h2 class="timer count-title count-number" data-to={{total_confirmed}} data-speed="1500"></h2>
+                <p class="count-text "><b>Total Confirmed Cases</b></p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="counter bg-success">
+                <h2 class="timer count-title count-number" data-to={{total_recovered}} data-speed="1500"></h2>
+                <p class="count-text "><b>Recovered Cases</b></p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="counter bg-warning">
+                <h2 class="timer count-title count-number" data-to={{total_active}} data-speed="1500"></h2>
+                <p class="count-text "><b>Active Cases</b></p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="counter bg-danger">
+                <h2 class="timer count-title count-number" data-to={{total_deaths}} data-speed="1500"></h2>
+                <p class="count-text "><b>Total Deaths</b></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    (function ($) {
+        $.fn.countTo = function (options) {
+            options = options || {};
+
+            return $(this).each(function () {
+                // set options for current element
+                var settings = $.extend({}, $.fn.countTo.defaults, {
+                    from: $(this).data('from'),
+                    to: $(this).data('to'),
+                    speed: $(this).data('speed'),
+                    refreshInterval: $(this).data('refresh-interval'),
+                    decimals: $(this).data('decimals')
+                }, options);
+
+                // how many times to update the value, and how much to increment the value on each update
+                var loops = Math.ceil(settings.speed / settings.refreshInterval),
+                    increment = (settings.to - settings.from) / loops;
+
+                // references & variables that will change with each update
+                var self = this,
+                    $self = $(this),
+                    loopCount = 0,
+                    value = settings.from,
+                    data = $self.data('countTo') || {};
+
+                $self.data('countTo', data);
+
+                // if an existing interval can be found, clear it first
+                if (data.interval) {
+                    clearInterval(data.interval);
+                }
+                data.interval = setInterval(updateTimer, settings.refreshInterval);
+
+                // initialize the element with the starting value
+                render(value);
+
+                function updateTimer() {
+                    value += increment;
+                    loopCount++;
+
+                    render(value);
+
+                    if (typeof (settings.onUpdate) == 'function') {
+                        settings.onUpdate.call(self, value);
+                    }
+
+                    if (loopCount >= loops) {
+                        // remove the interval
+                        $self.removeData('countTo');
+                        clearInterval(data.interval);
+                        value = settings.to;
+
+                        if (typeof (settings.onComplete) == 'function') {
+                            settings.onComplete.call(self, value);
+                        }
+                    }
+                }
+
+                function render(value) {
+                    var formattedValue = settings.formatter.call(self, value, settings);
+                    $self.html(formattedValue);
+                }
+            });
+        };
+
+        $.fn.countTo.defaults = {
+            from: 0,               // the number the element should start at
+            to: 0,                 // the number the element should end at
+            speed: 1000,           // how long it should take to count between the target numbers
+            refreshInterval: 100,  // how often the element should be updated
+            decimals: 0,           // the number of decimal places to show
+            formatter: formatter,  // handler for formatting the value before rendering
+            onUpdate: null,        // callback method for every time the element is updated
+            onComplete: null       // callback method for when the element finishes updating
+        };
+
+        function formatter(value, settings) {
+            return value.toFixed(settings.decimals);
+        }
+    }(jQuery));
+
+    jQuery(function ($) {
+        // custom formatting example
+        $('.count-number').data('countToOptions', {
+            formatter: function (value, options) {
+                return value.toFixed(options.decimals).replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
+            }
+        });
+
+        // start all the timers
+        $('.timer').each(count);
+
+        function count(options) {
+            var $this = $(this);
+            options = $.extend({}, options || {}, $this.data('countToOptions') || {});
+            $this.countTo(options);
+        }
+    });
+</script>
+<!-- End of Live Meter -->
+
+<br>
+
+<!-- Choropleth Globe -->
+
+<div class="container mt-4 mb-3">
+    <h1 class=" text-center mb-3" style="font-size: 200%; font-family: Arial, Helvetica, sans-serif;"></h1>
+    <div class="{% plotly_class name='home_app5' %} card mx-auto " style="height: 90%; width: 55%">
+        {% plotly_app name='home_app5' ratio=1 %}
+    </div>
+</div>
+
+<!-- End of Choropleth Globe -->
+
+<!-- pie charts -->
+<h1 class="text-center mt-5"
+    style=" font-family: Arial, Helvetica, sans-serif; height: 20%; width: 100%; padding: 0%; margin-right: 0; margin-left: 0;">
+    Total Confirmed, Recovered, Active and Death Cases</h1>
+<div class="container">
+    <div class="{% plotly_class name='home_app4' %} cards "
+        style=" height: 10%; width: 50%; padding: 0%; float: left; ">
+        {% plotly_app name='home_app4' ratio=0.9 %}
+    </div>
+    <div class="{% plotly_class name='home_app3' %} cards " style="height: 10%; width: 50%; padding: 0%; float: right;">
+        {% plotly_app name='home_app3' ratio=0.9 %}
+    </div>
+</div>
+<!-- end of pie charts -->
+
+<!-- Symptoms Graph -->
+<div class="container mt-0 mb-5">
+    <h1 class="text-center" style="font-family: Arial, Helvetica, sans-serif;">Symptoms of Coronavirus</h1>
+    <div class="{% plotly_class name='home_app6' %} cards">
+        {% plotly_app name='home_app6' ratio=0.45 %}
+    </div>
+</div>
+
+<!-- end of symptoms graph -->
+<!-- Age graph -->
+<h1 class="text-center mt-5"
+    style=" font-family: Arial, Helvetica, sans-serif; height: 20%; width: 100%; padding: 0%; margin-right: 0; margin-left: 0;">
+    Age-wise Trend of Coronavirus</h1>
+<div class="container mb-5 ">
+    <div class="{% plotly_class name='home_app7' %} cards mx-auto "
+        style="height:10%; width: 50%; padding: 0%; margin-right:0; float: left;">
+        {% plotly_app name='home_app7' ratio=1 %}
+    </div>
+    <div class="{% plotly_class name='home_app8' %} cards mx-auto"
+        style="height: 10%; width: 50%; padding: 0%; margin-left: 0; float: right;">
+        {% plotly_app name='home_app8' ratio=1 %}
+    </div>
+</div>
+
+<!-- End of age graph -->
+
+{% endblock %}

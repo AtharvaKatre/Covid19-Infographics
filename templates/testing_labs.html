@@ -1,0 +1,3108 @@
+{%  extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<script>
+    function myFunction() {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("labs_table");
+        tr = table.getElementsByTagName("tr");
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
+
+<!-- Search form -->
+<div class="container">
+    <input id="myInput" class="form-control " style="width: 50%; margin-top: 80px;" type="text" placeholder="Search"
+        aria-label="Search" onkeyup="myFunction()">
+    <br>
+    <table id='labs_table' align="center" class="table table-striped mt-4">
+        <thead class="thead-dark">
+            <tr style="text-align: center;">
+                <th></th>
+                <th>lab</th>
+                <th>
+                    address</th>
+                <th>pincode</th>
+                <th>city</th>
+                <th>state</th>
+                <th>type</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>0</th>
+                <td>ICMR-Regional Medical Research Centre, Port Blair</td>
+                <td>ICMR-Regional Medical
+                    Research Centre, Post Bag 13, Dollygunj, Port Blair, Andaman and Nicobar Islands 744103</td>
+                <td>
+                    744103</td>
+                <td>Port Blair</td>
+                <td>Andaman and Nicobar Islands</td>
+                <td>Government Laboratory
+                </td>
+            </tr>
+            <tr>
+                <th>1</th>
+                <td>Tomo Riba Institute of Health &amp; Medical Sciences, Naharlagun
+                </td>
+                <td>National Highway 52A, Old Assembly Complex, Naharlagun, Arunachal Pradesh 791110</td>
+                <td>
+                    791110</td>
+                <td>Naharlagun</td>
+                <td>Arunachal Pradesh</td>
+                <td>Collection Site</td>
+            </tr>
+            <tr>
+                <th>2</th>
+                <td>Sri Venkateswara Institute of Medical Sciences, Tirupati</td>
+                <td>Sri Venkateswara
+                    Institute of Medical Sciences, Tirupati, Andhra Pradesh Alipiri Rd, Sri Padmavati Mahila
+                    Visvavidyalayam, Tirupati, Andhra Pradesh 517507</td>
+                <td>517507</td>
+                <td>Tirupati</td>
+                <td>Andhra
+                    Pradesh</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>3</th>
+                <td>Rangaraya Medical
+                    College, Kakinada</td>
+                <td>Rangaraya Medical College, Kakinada Pithampuram Road, Kakinada, Andhra
+                    Pradesh 533001</td>
+                <td>533001</td>
+                <td>Kakinada</td>
+                <td>Andhra Pradesh</td>
+                <td>Government
+                    Laboratory</td>
+            </tr>
+            <tr>
+                <th>4</th>
+                <td>Sidhartha Medical College, Vijaywada</td>
+                <td>
+                    Siddhartha Medical College, Vijayawada NH 16 Service Rd, beside Dr NTR University of Health
+                    Sciences,
+                    Gunadala, Vijayawada, Andhra Pradesh 520008</td>
+                <td>520008</td>
+                <td>Vijayawada</td>
+                <td>Andhra
+                    Pradesh</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>5</th>
+                <td>Government Medical
+                    College, Anantapur</td>
+                <td>Government Medical College, Anantapur, Rahamat Nagar, Anantapur, Andhra
+                    Pradesh 515001</td>
+                <td>515001</td>
+                <td>Anantapur</td>
+                <td>Andhra Pradesh</td>
+                <td>Government
+                    Laboratory</td>
+            </tr>
+            <tr>
+                <th>6</th>
+                <td>Guntur Medical College, Guntur</td>
+                <td>Guntur
+                    Medical College, Guntur Kanna Vari Thota, Guntur, Andhra Pradesh 522004</td>
+                <td>522004</td>
+                <td>
+                    Guntur</td>
+                <td>Andhra Pradesh</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>7</th>
+                <td>Rajeev Gandhi Institute of Medical Sciences (RIMS), Kadappa</td>
+                <td>Rajiv Gandhi Institute of Medical
+                    Sciences, Kadapa Puttampalli, Andhra Pradesh 516002</td>
+                <td>516002</td>
+                <td>Puttampalli</td>
+                <td>
+                    Andhra Pradesh</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>8</th>
+                <td>Andhra Medical
+                    College, Vishakhapatnam</td>
+                <td>Andhra Medical College, Vishakhapatnam, Medical College Road, Opp
+                    Collector Office, Maharanipeta, King George Hospital Campus, Andhra Pradesh 530002</td>
+                <td>530002
+                </td>
+                <td>Vishakhapatnam</td>
+                <td>Andhra Pradesh</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>9</th>
+                <td>Gauhati Medical College, Guwahati</td>
+                <td>Guwahati Narakasur Hilltop, Bhangagarh,
+                    Guwahati, Assam 781032</td>
+                <td>781032</td>
+                <td>Guwahati</td>
+                <td>Assam</td>
+                <td>Government
+                    Laboratory</td>
+            </tr>
+            <tr>
+                <th>10</th>
+                <td>Regional Medical Research Centre, Dibrugarh</td>
+                <td>Regional Medical Research Centre, Dibrugarh Bokul, Lahowal, Dibrugarh, Assam, Assam 786001</td>
+                <td>
+                    786001</td>
+                <td>Dibrugarh</td>
+                <td>Assam</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>
+                    11</th>
+                <td>Jorhat Medical College, Jorhat</td>
+                <td>Jorhat Medical College, Jorhat Kushal Konwar
+                    Path, Barbheta, Jorhat, Assam 785001</td>
+                <td>785001</td>
+                <td>Jorhat</td>
+                <td>Assam</td>
+                <td>
+                    Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>12</th>
+                <td>Silchar Medical College, Silchar</td>
+                <td>Silchar Medical College, Silchar Ghungoor Road, beside Indian Post, Masimpur, Uttar Krishnapur Pt
+                    III,
+                    Assam 788014</td>
+                <td>788014</td>
+                <td>Silchar</td>
+                <td>Assam</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>13</th>
+                <td>Fakhruddin Medical College, Barpeta</td>
+                <td>Fakhruddin Medical
+                    College, Barpeta-Hospital-Jania Rd, Joti Gaon, Assam 781301</td>
+                <td>781301</td>
+                <td>Barpeta</td>
+                <td>Assam</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>14</th>
+                <td>Tezpur Medical College
+                    and Hospital, Tezpur</td>
+                <td>Tezpur Medical College. Bihaguri, Tezpur 784010, Assam, India</td>
+                <td>784010</td>
+                <td>Tezpur</td>
+                <td>Assam</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>15
+                </th>
+                <td>Rajendra Memorial Research Institute of Medical Sciences, Patna</td>
+                <td>Rajendra Memorial
+                    Research Institute of Medical Sciences, Sadikpur, Patna, Bihar 800007</td>
+                <td>800007</td>
+                <td>Patna
+                </td>
+                <td>Bihar</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>16</th>
+                <td>Indira Gandhi
+                    Institute of Medical Sciences, Patna</td>
+                <td>Indira Gandhi Institute of Medical Sciences, Allahabad
+                    bank, Bailey Rd, Sheikhpura, Patna, Bihar 800014</td>
+                <td>800014</td>
+                <td>Patna</td>
+                <td>Bihar
+                </td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>17</th>
+                <td>Patna Medical College, Patna</td>
+                <td>Patna Medical College, Ashok Rajpath, Patna University Campus, Patna, Bihar 800001</td>
+                <td>800001
+                </td>
+                <td>Patna</td>
+                <td>Bihar</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>18</th>
+                <td>
+                    Darbhanga Medical College, Darbhanga</td>
+                <td>Darbhanga Medical College, DMCH Rd, Allalpatti,
+                    Laheriasarai, Darbhanga, Bihar 846003</td>
+                <td>846003</td>
+                <td>Darbhanga</td>
+                <td>Bihar</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>19</th>
+                <td>S K Medical College, Muzaffarpur</td>
+                <td>S K Medical College, Shree Krishna medical college, Uma Nagar, Muzaffarpur, Bihar 842004</td>
+                <td>
+                    842004</td>
+                <td>Muzaffarpur</td>
+                <td>Bihar</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>20</th>
+                <td>All India Institute of Medical Sciences (AIIMS), Patna</td>
+                <td>All India Institute of
+                    Medical Sciences, Phulwarisharif, Patna, Bihar 801507, India</td>
+                <td>801507</td>
+                <td>Patna</td>
+                <td>Bihar</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>21</th>
+                <td>Post Graduate Institute
+                    of Medical Education &amp; Research, Chandigarh</td>
+                <td>Post Graduate Institute of Medical Education
+                    &amp; Research, Chandigarh, Madhya Marg, Sector 12, Chandigarh, 160012</td>
+                <td>160012</td>
+                <td>
+                    Chandigarh</td>
+                <td>Chandigarh</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>22</th>
+                <td>Government Medical College &amp; Hospital, Chandigarh</td>
+                <td>Government Medical College &amp;
+                    Hospital, Chandi Path, Sector 32B, 32B, Sector 32, Chandigarh, 160047</td>
+                <td>160047</td>
+                <td>
+                    Chandigarh</td>
+                <td>Chandigarh</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>23</th>
+                <td>CSIR - Institute of Microbial Technology, Chandigarh</td>
+                <td>CSIR - Institute of Microbial
+                    Technology, Sector 39A, Chandigarh, 160036, India</td>
+                <td>160036</td>
+                <td>Chandigarh</td>
+                <td>
+                    Chandigarh</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>24</th>
+                <td>All India Institute
+                    of Medical Science (AIIMS), Raipur</td>
+                <td>All India Institute of Medical Science (AIIMS), Great
+                    Eastern Rd, AIIMS Campus, Tatibandh, Raipur, Chhattisgarh 492099</td>
+                <td>492099</td>
+                <td>Raipur
+                </td>
+                <td>Chhattisgarh</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>25</th>
+                <td>Late
+                    Baliram Kashyap M Govt. Medical College, Jagdalpur</td>
+                <td>Late Baliram Kashyap M Govt. Medical
+                    College, Dimrapal, Jagdalpur, Chhattisgarh 494001</td>
+                <td>494001</td>
+                <td>Jagdalpur</td>
+                <td>
+                    Chhattisgarh</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>26</th>
+                <td>Pt J.N.M. Medical
+                    College Raipur</td>
+                <td>Pt. Jawahar Lal Nehru Memorial Medical College, Jail Road, Raipur,
+                    Chhattisgarh 492001, India</td>
+                <td>492001</td>
+                <td>Raipur</td>
+                <td>Chhattisgarh</td>
+                <td>
+                    Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>27</th>
+                <td>Shri Vinoba Bhave Civil Hospital and
+                    NAtional MOdern Medical Education and Research Institute, Silvassa</td>
+                <td>NAtional MOdern Medical
+                    Education and Research Institute and Shri Vinoba Bhave Civil Hospital, Sayali Road, Silvassa Dadra
+                    &amp;
+                    Nagar Haveli 396230 India</td>
+                <td>396230</td>
+                <td>Silvassa</td>
+                <td>Dadra and Nagar Haveli and
+                    Daman and Diu</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>28</th>
+                <td>All India
+                    Institute of Medical Sciences, New Delhi</td>
+                <td>All India Institute of Medical Sciences, Sri
+                    Aurobindo Marg, Ansari Nagar, Ansari Nagar East, New Delhi, Delhi 110029</td>
+                <td>110029</td>
+                <td>
+                    New Delhi</td>
+                <td>Delhi</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>29</th>
+                <td>Lady
+                    Hardinge Medical College, New Delhi</td>
+                <td>Lady Hardinge Medical College, Connaught Place, New
+                    Delhi, Delhi 110001</td>
+                <td>110001</td>
+                <td>New Delhi</td>
+                <td>Delhi</td>
+                <td>Government
+                    Laboratory</td>
+            </tr>
+            <tr>
+                <th>30</th>
+                <td>National Centre for Disease Control, New Delhi</td>
+                <td>National Centre for Disease Control, 22, Sham Nath Marg, Civil Lines, New Delhi, Delhi 110054</td>
+                <td>110054</td>
+                <td>New Delhi</td>
+                <td>Delhi</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>
+                    31</th>
+                <td>Ram Manohar Lohia Hospital, New Delhi</td>
+                <td>Ram Manohar Lohia Hospital, Type III,
+                    President\'s Estate, New Delhi, Delhi 110001</td>
+                <td>110001</td>
+                <td>New Delhi</td>
+                <td>Delhi
+                </td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>32</th>
+                <td>Institute of Liver and Biliary
+                    Sciences, New Delhi</td>
+                <td>Institute of Liver and Biliary Sciences, D1 ILBS Road, Vasant Kunj, New
+                    Delhi, Delhi 110070</td>
+                <td>110070</td>
+                <td>New Delhi</td>
+                <td>Delhi</td>
+                <td>Government
+                    Laboratory</td>
+            </tr>
+            <tr>
+                <th>33</th>
+                <td>Army Hospital Research &amp; Referral, New Delhi</td>
+                <td>Army Hospital Research &amp; Referral, Military Hospital Road Near, Subroto Park, Dhaula Kuan, New
+                    Delhi, Delhi 110010</td>
+                <td>110010</td>
+                <td>New Delhi</td>
+                <td>Delhi</td>
+                <td>Government
+                    Laboratory</td>
+            </tr>
+            <tr>
+                <th>34</th>
+                <td>Maulana Azad Medical College, New Delhi</td>
+                <td>
+                    Maulana Azad Medical College, 2, Bahadur Shah Zafar Marg, New Delhi, Delhi 110002</td>
+                <td>110002</td>
+                <td>New Delhi</td>
+                <td>Delhi</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>35</th>
+                <td>
+                    Vardhman Mahavir Medical College and Safdarjung Hospital, New Delhi</td>
+                <td>Vardhman Mahavir Medical
+                    College and Safdarjung Hospital, Ansari Nagar East, New Delhi, Delhi 110029</td>
+                <td>110029</td>
+                <td>New Delhi</td>
+                <td>Delhi</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>36</th>
+                <td>Dr
+                    Lal PathLabs, National Reference laboratory</td>
+                <td>Dr Lal PathLabs, National Reference laboratory,
+                    B7 Rd, Block E, Sector 18, Rohini, New Delhi, Delhi 110085</td>
+                <td>110085</td>
+                <td>New Delhi</td>
+                <td>Delhi</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>37</th>
+                <td>Dr. Dang’s Lab, New Delhi
+                </td>
+                <td>Dr. Dang’s Lab, C2/1 SDA Aurbindo Marg, New Delhi 110016</td>
+                <td>110016</td>
+                <td>New Delhi
+                </td>
+                <td>Delhi</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>38</th>
+                <td>Laboratory Services
+                    Indraprastha Apollo Hospitals, Sarita Vihar, New Delhi</td>
+                <td>Laboratory Services Indraprastha
+                    Apollo Hospitals, Sarita Vihar, New Delhi 110076</td>
+                <td>110076</td>
+                <td>New Delhi</td>
+                <td>Delhi
+                </td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>39</th>
+                <td>Max lab, Max Super Speciality
+                    Hospita, Saket, New Delhi</td>
+                <td>Max lab, Max Super Speciality Hospital, 1, Press Enclave Road,
+                    Saket New Delhi 110017</td>
+                <td>110017</td>
+                <td>New Delhi</td>
+                <td>Delhi</td>
+                <td>Private
+                    Laboratory</td>
+            </tr>
+            <tr>
+                <th>40</th>
+                <td>Sir ganga ram hospital clinical laboratory services,
+                    New Delhi</td>
+                <td>Sir ganga ram hospital clinical laboratory services, Sarhadi Gandhi Marg, Old
+                    Rajinder Nagar, Rajinder Nagar, New Delhi, Delhi 110060</td>
+                <td>110060</td>
+                <td>New Delhi</td>
+                <td>Delhi</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>41</th>
+                <td>ONCQUEST Laboratories
+                    Limited, New Delhi</td>
+                <td>ONCQUEST Laboratories Limited 3-Factory Road, Adjacent Safdarjung
+                    Hospital, New Delhi, Delhi 110029</td>
+                <td>110029</td>
+                <td>New Delhi</td>
+                <td>Delhi</td>
+                <td>
+                    Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>42</th>
+                <td>Prognosis Laboratories, New Delhi</td>
+                <td>
+                    Prognosis Laboratories, 515-516, behind Gupta Properties, Close to Welcome Hotel (ITC, Sector 19,
+                    Pocket
+                    1, Dwarka, New Delhi, Delhi 110075</td>
+                <td>110075</td>
+                <td>New Delhi</td>
+                <td>Delhi</td>
+                <td>
+                    Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>43</th>
+                <td>City x-Ray &amp; Scan Clinic Pvt. Ltd., New
+                    Delhi</td>
+                <td>City X Ray &amp; Scan Clinic Pvt. Ltd., Molecular Laboratory, Third Floor,City Imaging
+                    Building, 4B/18, Tilak Nagar, Near haldiram, New Delhi 110018</td>
+                <td>110018</td>
+                <td>New Delhi
+                </td>
+                <td>Delhi</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>44</th>
+                <td>Lifeline Laboratory,
+                    New Delhi</td>
+                <td>Lifeline Laboratory, H-11, Green Park Extension, New Delhi, Delhi 110016</td>
+                <td>110016</td>
+                <td>New Delhi</td>
+                <td>Delhi</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>45
+                </th>
+                <td>Department of Laboratory Services, Dr. B.L. Kapur Memorial Hospital New Delhi</td>
+                <td>
+                    Department of Laboratory Services, Dr. B.L. Kapur Memorial Hospital, 5, Pusa Road, New Delhi-110005,
+                    India</td>
+                <td>110005</td>
+                <td>New Delhi</td>
+                <td>Delhi</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>46</th>
+                <td>BJ Medical College, Ahmedabad</td>
+                <td>B j medical college, Asarwa, Civil Hospital
+                    Campus, Ahmedabad, Gujarat 380016</td>
+                <td>380016</td>
+                <td>Ahmedabad</td>
+                <td>Gujarat</td>
+                <td>
+                    Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>47</th>
+                <td>M. P. Shah Govt Medical College, Jamnagar
+                </td>
+                <td>M.P. Shah Govt Medical College, Pandit Nehru Marg, Indradeep Society, Jamnagar, Gujarat 361008
+                </td>
+                <td>361008</td>
+                <td>Jamnagar</td>
+                <td>Gujarat</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>48</th>
+                <td>Government Medical College, Surat</td>
+                <td>Government Medical College, Opp Income Tax
+                    Department Office, Majura Gate, Surat, Gujarat 395001</td>
+                <td>395001</td>
+                <td>Surat</td>
+                <td>
+                    Gujarat</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>49</th>
+                <td>Government Medical
+                    College, Bhavnagar</td>
+                <td>Government Medical College, Near State Road Transport Corporation Bus
+                    Stand, Bhavnagar, Gujarat 364001</td>
+                <td>364001</td>
+                <td>Bhavnagar</td>
+                <td>Gujarat</td>
+                <td>
+                    Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>50</th>
+                <td>Government Medical College, Vadodara</td>
+                <td>Government Medical College, Vinoba Bhave Rd, Anandpura, Vadodara, Gujarat 390001</td>
+                <td>390001
+                </td>
+                <td>Vadodara</td>
+                <td>Gujarat</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>51</th>
+                <td>Government Medical College, Rajkot</td>
+                <td>Government Medical College, Pandit Dindayal Upadhyay
+                    Medical College, Sadar Civil Hospital Campus, Rajkot, Gujarat 360001</td>
+                <td>360001</td>
+                <td>Rajkot
+                </td>
+                <td>Gujarat</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>52</th>
+                <td>Smt. NHL
+                    Municipal Medical College, Ahmedabad</td>
+                <td>Smt. NHL Municipal Medical College, Pritan Rai Cross
+                    Road, Ellise Bridge, Paldi, Ahmedabad, Gujarat 380006, India</td>
+                <td>380006</td>
+                <td>Ahmedabad</td>
+                <td>Gujarat</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>53</th>
+                <td>GMERS Medical
+                    Collage, Ahmedabad</td>
+                <td>GMERS Medical Collage, Sola, S.G. Highway, Ahmedabad, Gujarat 380060,
+                    India</td>
+                <td>380060</td>
+                <td>Ahmedabad</td>
+                <td>Gujarat</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>54</th>
+                <td>ICMR-National Institute of Occupational Health, Ahmedabad</td>
+                <td>
+                    ICMR-National Institute of Occupational Health, Meghani Nagar, Ahmedabad-380016, Gujarat, India</td>
+                <td>380016</td>
+                <td>Ahmedabad</td>
+                <td>Gujarat</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>55</th>
+                <td>Surat Municipal Institute of Medical Education &amp; Research, Surat</td>
+                <td>Surat
+                    Municipal Institute of Medical Education &amp; Research, Near Sahara Darwaja, Opposite to Bombay
+                    Market,
+                    Umarwada, Surat- 395010 Gujarat, India</td>
+                <td>395010</td>
+                <td>Surat</td>
+                <td>Gujarat</td>
+                <td>
+                    Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>56</th>
+                <td>Unipath Speciality Laboratory Limited,
+                    Ahmedabad</td>
+                <td>Unipath Speciality Laboratory Limited,, 102, 1st Floor, Sanoma Plaza, Sheth Mangald
+                    Road, Opp. Parimal Garden, Ellisbridge, Ahmedabad, Gujarat 380006</td>
+                <td>380006</td>
+                <td>Ahmedabad
+                </td>
+                <td>Gujarat</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>57</th>
+                <td>Supratech
+                    Micropath Laboratory &amp; Research Institute Pvt. Ltd., Ahmedabad</td>
+                <td>Supratech Micropath
+                    Laboratory &amp; Research Institute Pvt. Ltd., Neuberg Supratech, Ground Floor, Kedar Builiding,
+                    Opp.
+                    Krupa petrol Pump Parimal garden, Gujarat 380006</td>
+                <td>380006</td>
+                <td>Ahmedabad</td>
+                <td>
+                    Gujarat</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>58</th>
+                <td>S. N. GENELAB, Nanpura,
+                    Surat</td>
+                <td>S. N. GENELAB, 2nd Floor, President Plaza-A, Nanpura, Surat, Gujarat, India 395001</td>
+                <td>395001</td>
+                <td>Surat</td>
+                <td>Gujarat</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>59
+                </th>
+                <td>PanGenomics International Pvt. Ltd., Ahmedabad</td>
+                <td>PanGenomics International Pvt. Ltd.,
+                    1st floor sankalp Squre Juna sharda Mandir Cross Road, Ahmedabad, Gujarat 380006</td>
+                <td>380006</td>
+                <td>Ahmedabad</td>
+                <td>Gujarat</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>60</th>
+                <td>
+                    Goa Medical College, Bambolim</td>
+                <td>Goa Medical College and Hospital, Bambolim Bambolim, Tiswadi
+                    Goa India 403202</td>
+                <td>403202</td>
+                <td>Goa</td>
+                <td>Goa</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>61</th>
+                <td>Pandit Bhagwat Dayal Sharma Post Graduate Institute of Medical Sciences, Rohtak
+                </td>
+                <td>Pandit Bhagwat Dayal Sharma Post Graduate Institute of Medical Sciences, SH 16A, Dev Colony,
+                    Rohtak, Haryana 124514</td>
+                <td>124514</td>
+                <td>Rohtak</td>
+                <td>Haryana</td>
+                <td>Government
+                    Laboratory</td>
+            </tr>
+            <tr>
+                <th>62</th>
+                <td>BPS Government Medical College for Women, Sonipat
+                </td>
+                <td>Bhagat Phool Singh Government Medical College, Ganaur - Gohana Rd, Khanpur Kalan, Haryana 131305
+                </td>
+                <td>131305</td>
+                <td>Sonipat</td>
+                <td>Haryana</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>63</th>
+                <td>ESIC Medical College and Hospital, Faridabad</td>
+                <td>ESIC Medical College and
+                    Hospital, NH-3, NIT, Faridabad, Haryana</td>
+                <td>121012</td>
+                <td>Faridabad</td>
+                <td>Haryana</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>64</th>
+                <td>ICAR-National Research Centre on Equines,
+                    Hisar</td>
+                <td>ICAR-National Research Centre on Equines, Sirsa Road, Hisar , 125001, Haryana, India
+                </td>
+                <td>125001</td>
+                <td>Hisar</td>
+                <td>Haryana</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>65</th>
+                <td>Kalpana Chawla Government Medical College and Hospital, Karnal</td>
+                <td>Kalpana
+                    Chawla Government Medical College and Hospital, Karnal, Haryana 132001, India</td>
+                <td>132001</td>
+                <td>Karnal</td>
+                <td>Haryana</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>66</th>
+                <td>
+                    Strand Life Sciences, Gurugram</td>
+                <td>Strand Life Sciences, A-17, Info Technology Park, Sector 34,
+                    Gurugram, Haryana 122001</td>
+                <td>122001</td>
+                <td>Gurugram</td>
+                <td>Haryana</td>
+                <td>Private
+                    Laboratory</td>
+            </tr>
+            <tr>
+                <th>67</th>
+                <td>SRL Limited, Gurugram</td>
+                <td>SRL Limited, GP 26
+                    Sector 18, Gurugram, Haryana, India Pin 122015</td>
+                <td>122015</td>
+                <td>Gurugram</td>
+                <td>Haryana
+                </td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>68</th>
+                <td>Modern Diagnostic &amp; research
+                    Centre Laboratory, Gurugram</td>
+                <td>Modern Diagnostic &amp; research Centre Laboratory, 363-364/4,
+                    Jawahar Nagar, New Railway Road, Gurugram-122001, Haryana</td>
+                <td>122001</td>
+                <td>Gurugram</td>
+                <td>Haryana</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>69</th>
+                <td>CORE Diagnostics Pvt Ltd,
+                    Gurugram</td>
+                <td>CORE Diagnostics Pvt Ltd, 406, Udyog Vihar III, Sector 20, Gurugram, Haryana 122016
+                </td>
+                <td>122016</td>
+                <td>Gurugram</td>
+                <td>Haryana</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>70</th>
+                <td>Molq Lab (A Unit of Molecular Quest Healthcare Private Limited), Gurugram</td>
+                <td>
+                    Molq Lab (A Unit of Molecular Quest Healthcare Private Limited), Plot 28-29, Sector 18(P),
+                    Electronic
+                    City, Udyog Vihar Phase-IV, Gurugram, Haryana 122001</td>
+                <td>122001</td>
+                <td>Gurugram</td>
+                <td>
+                    Haryana</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>71</th>
+                <td>PATHKIND Diagnostics Pvt.
+                    Ltd., Gurugram</td>
+                <td>PATHKIND Diagnostics Pvt. Ltd., Plot No. 55, 56, Service Lane, Phase IV, Udyog
+                    Vihar, Sector 18, Gurugram, Haryana 122015</td>
+                <td>122015</td>
+                <td>Gurugram</td>
+                <td>Haryana</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>72</th>
+                <td>Indira Gandhi Medical College, Shimla</td>
+                <td>Indira Gandhi Medical College, Ridge Sanjauli Rd, Lakkar Bazar, Shimla, Himachal Pradesh 171001</td>
+                <td>171001</td>
+                <td>Shimla</td>
+                <td>Himachal Pradesh</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>73</th>
+                <td>Dr. Rajendra Prasad Government Medical College, Tanda</td>
+                <td>Dr. Rajendra Prasad
+                    Government Medical College, Tanda Hospital Rd, Kangra, Himachal Pradesh 176001</td>
+                <td>176001</td>
+                <td>Kangra</td>
+                <td>Himachal Pradesh</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>74</th>
+                <td>Central Research Institute, Kasauli</td>
+                <td>Central Research Institute, Solan, Kasauli, Himachal
+                    Pradesh 173204</td>
+                <td>173204</td>
+                <td>Kasauli</td>
+                <td>Himachal Pradesh</td>
+                <td>Government
+                    Laboratory</td>
+            </tr>
+            <tr>
+                <th>75</th>
+                <td>Government Medical College, Jammu</td>
+                <td>
+                    Government Medical College, maheshpura, chowk, Bakshi Nagar, Jammu Cantonment, Jammu and Kashmir
+                    180001
+                </td>
+                <td>180001</td>
+                <td>Jammu</td>
+                <td>Jammu and Kashmir</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>76</th>
+                <td>Command Hospital, Udhampur</td>
+                <td>Command Hospital, Raghunathpura,
+                    Udhampur, Jammu and Kashmir 182101</td>
+                <td>182101</td>
+                <td>Udhampur</td>
+                <td>Jammu and Kashmir
+                </td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>77</th>
+                <td>Sher-i -Kashmir Institute of
+                    Medical Sciences, Srinagar</td>
+                <td>Sher - i-Kashmir Institute of Medical Sciences, SKIMS Main Rd,
+                    Soura, Srinagar, 190011</td>
+                <td>190011</td>
+                <td>Srinagar</td>
+                <td>Jammu and Kashmir</td>
+                <td>
+                    Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>78</th>
+                <td>Government Medical College, Srinagar</td>
+                <td>Government Medical College, Jammu and Kashmir, Bemina, Srinagar, 190010</td>
+                <td>190010</td>
+                <td>
+                    Srinagar</td>
+                <td>Jammu and Kashmir</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>79</th>
+                <td>MGM Medical College, Jamshedpur</td>
+                <td>MGM Medical College, Dimna Rd, Hill View Colony, Mango,
+                    Jamshedpur, Jharkhand 831020</td>
+                <td>831020</td>
+                <td>Jamshedpur</td>
+                <td>Jharkhand</td>
+                <td>
+                    Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>80</th>
+                <td>Rajendra Institute of Medical Sciences,
+                    Ranchi</td>
+                <td>Rajendra Institute of Medical Sciences, Cir, Indraprasth Colony, Bariatu, Ranchi,
+                    Jharkhand 834009</td>
+                <td>834009</td>
+                <td>Ranchi</td>
+                <td>Jharkhand</td>
+                <td>Government
+                    Laboratory</td>
+            </tr>
+            <tr>
+                <th>81</th>
+                <td>Patliputra Medical College &amp; Hospital, Dhanbad
+                </td>
+                <td>Patliputra Medical College &amp; Hospital, B.C.C.L. Township, Koyla Nagar, Dhanbad - 826005,
+                    Jharkhand</td>
+                <td>826005</td>
+                <td>Dhanbad</td>
+                <td>Jharkhand</td>
+                <td>Government Laboratory
+                </td>
+            </tr>
+            <tr>
+                <th>82</th>
+                <td>Hassan Institute of Medical Sciences, Hassan</td>
+                <td>Hassan
+                    Institute of Medical Sciences, Shri panchamukhi medicals and clinic, opp. govt high school, Hassan,
+                    Karnataka 573201</td>
+                <td>573201</td>
+                <td>Hassan</td>
+                <td>Karnataka</td>
+                <td>Government
+                    Laboratory</td>
+            </tr>
+            <tr>
+                <th>83</th>
+                <td>Mysore Medical College &amp; Research Institute,
+                    Mysore</td>
+                <td>Mysore Medical College &amp; Research Institute, Irwin Road, next to Railway Staion,
+                    Mysuru, Karnataka 570001</td>
+                <td>570001</td>
+                <td>Mysuru</td>
+                <td>Karnataka</td>
+                <td>Government
+                    Laboratory</td>
+            </tr>
+            <tr>
+                <th>84</th>
+                <td>Shimoga Institute of Medical Sciences, Shivamogga
+                </td>
+                <td>Shimoga Institute of Medical Sciences, N.H.206, Sagara Road, Shivamogga, Karnataka 577201</td>
+                <td>577201</td>
+                <td>Shivamogga</td>
+                <td>Karnataka</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>85</th>
+                <td>Command Hospital (Air Force) Bengaluru</td>
+                <td>Command Hospital (Air Force) , Cambridge
+                    Rd, Cambridge Layout, Jogupalya, Bengaluru, Karnataka 560007</td>
+                <td>560007</td>
+                <td>Bengaluru</td>
+                <td>Karnataka</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>86</th>
+                <td>Bangalore Medical
+                    College &amp; Research Institute, Bangaluru</td>
+                <td>Bangalore Medical College &amp; Research
+                    Institute, Krishna Rajendra Rd, Bengaluru, Karnataka 560002</td>
+                <td>560002</td>
+                <td>Bengaluru</td>
+                <td>Karnataka</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>87</th>
+                <td>National Institute
+                    of Virology, Field Unit, Bengaluru</td>
+                <td>National Institute of Virology, Field Unit, Jaya Nagar 1st
+                    Block, Jayanagar, Bengaluru, Karnataka 560011</td>
+                <td>560011</td>
+                <td>Bengaluru</td>
+                <td>
+                    Karnataka</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>88</th>
+                <td>Gulbarga Institute Of
+                    Medical Sciences, Gulbarga</td>
+                <td>Gulbarga Institute Of Medical Sciences, Sedam Rd,Veeresh Nagar
+                    Cross, behind MRMC, Gulbarga, Karnataka 585101</td>
+                <td>585101</td>
+                <td>Gulbarga</td>
+                <td>
+                    Karnataka</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>89</th>
+                <td>National Institute of
+                    Mental Health and Neurosciences, Bengaluru</td>
+                <td>National Institute of Mental Health and
+                    Neurosciences,, Hosur Road, Lakkasandra, Hombegowda Nagar, Bengaluru, Karnataka 560029</td>
+                <td>560029
+                </td>
+                <td>Bengaluru</td>
+                <td>Karnataka</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>90
+                </th>
+                <td>Vijayanagar Institute of Medical Science, Bellary</td>
+                <td>Vijayanagar Institute of Medical
+                    Sciences, Contonment, Bellary 583104, Karnataka, India</td>
+                <td>583104</td>
+                <td>Bellary</td>
+                <td>
+                    Karnataka</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>91</th>
+                <td>Wenlock District
+                    Hospital, Mangalore</td>
+                <td>Wenlock District Hospital, Hampankatta, Mangalore, Karnataka 575001</td>
+                <td>575001</td>
+                <td>Mangalore</td>
+                <td>Karnataka</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>92</th>
+                <td>Karnataka Institute of Medical Sciences (K.I.M.S.), Hubballi</td>
+                <td>Karnataka
+                    Institute of Medical Sciences (K.I.M.S.), P. B Road, Vidyanagar, Hubli – 580022, Karnataka, India
+                </td>
+                <td>580022</td>
+                <td>Hubli</td>
+                <td>Karnataka</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>
+                    93</th>
+                <td>ICMR-National Institute of Traditional Medicine (NITM), Belagavi</td>
+                <td>ICMR-National
+                    Institute of Traditional Medicine (NITM), Nehru Nagar, National Highway No. 4, Belagavi- 590010
+                    Karnataka, India</td>
+                <td>590010</td>
+                <td>Belagavi</td>
+                <td>Karnataka</td>
+                <td>Government
+                    Laboratory</td>
+            </tr>
+            <tr>
+                <th>94</th>
+                <td>Neuberg Anand Reference Laboratory, Bengaluru</td>
+                <td>Neuberg Anand Reference Laboratory, Anand Tower, #54, bowring Hospital Road, Bengaluru, karnataka,
+                    India
+                    560001</td>
+                <td>560001</td>
+                <td>Bengaluru</td>
+                <td>Karnataka</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>95</th>
+                <td>Cancyte Technologies Private Limited, Bengaluru</td>
+                <td>Cancyte Technologies
+                    Private Limited, Bengaluru, Karnataka 560018</td>
+                <td>560018</td>
+                <td>Bengaluru</td>
+                <td>Karnataka
+                </td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>96</th>
+                <td>Sakra World Hospital Laboratory
+                    Services, Bangalore</td>
+                <td>Sakra World Hospital Laboratory Services, 52/2 &amp; 52/3,
+                    Deverabeesanahalli, Varthur Hobli, Bangalore-560103, Karnataka, India</td>
+                <td>560103</td>
+                <td>
+                    Bengaluru</td>
+                <td>Karnataka</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>97</th>
+                <td>
+                    Central Diagnostic Laboratory, Vydehi Institute of Medical Sciences &amp; Research Centre, Bangalore
+                </td>
+                <td>Central Diagnostic Laboratory, Vydehi Institute of Medical Sciences &amp; Research Centre,
+                    Basement Hospital Building, #82, E.P.I.P. Area, Whitefield, Bangalore-560066, Karnataka</td>
+                <td>
+                    560066</td>
+                <td>Bengaluru</td>
+                <td>Karnataka</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>98</th>
+                <td>Laboratory Services, Apollo Hospitals, (A Unit of M/S Imperial Hospital and Research
+                    Centre Ltd), Bengaluru</td>
+                <td>Laboratory Services, Apollo Hospitals, (A Unit of M/S Imperial
+                    Hospital and Research Centre Ltd), 154/11, Opp IIM, Bannerghatta Road, Bengaluru - 560 076,
+                    Karnataka,
+                    India</td>
+                <td>560076</td>
+                <td>Bengaluru</td>
+                <td>Karnataka</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>99</th>
+                <td>National Institute of Virology Field Unit, Allapuzzha</td>
+                <td>National
+                    Institute of Virology Field Unit, Allapuzzha Vandanam, Kerala 688005</td>
+                <td>688005</td>
+                <td>
+                    Vandanam</td>
+                <td>Kerala</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>100</th>
+                <td>
+                    Government Medical College, Trivandrum</td>
+                <td>Government Medical College, Ulloor - Akkulam Rd, near
+                    SAT hospital Medical College Junction, Chalakkuzhi, Thiruvananthapuram, Kerala 695011</td>
+                <td>695011
+                </td>
+                <td>Thiruvananthapuram</td>
+                <td>Kerala</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>
+                    101</th>
+                <td>Government Medical College, Kozhikode</td>
+                <td>Government Medical College, 17 Medical
+                    College Road Medical College Junction, Near Police Station, Kozhikode, Kerala 673008</td>
+                <td>673008
+                </td>
+                <td>Kozhikode</td>
+                <td>Kerala</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>102</th>
+                <td>Government Medical College, Thrissur</td>
+                <td>Government Medical College, M. G. Kavu, Thrissur,
+                    Kerala 680596</td>
+                <td>680596</td>
+                <td>Thrissur</td>
+                <td>Kerala</td>
+                <td>Government Laboratory
+                </td>
+            </tr>
+            <tr>
+                <th>103</th>
+                <td>Rajiv Gandhi Center for Biotechnology, Thiruvananthapuram</td>
+                <td>Rajiv Gandhi Center for Biotechnology,, Melarannoor Road Behind Central Jail Poojapura, Thycaud,
+                    Thiruvananthapuram, Kerala 695014</td>
+                <td>695014</td>
+                <td>Thiruvananthapuram</td>
+                <td>Kerala</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>104</th>
+                <td>Sree Chitra Tirunal Institute for
+                    Medical Sciences &amp; Technology, Thiruvananthapuram</td>
+                <td>Sree Chitra Tirunal Institute for
+                    Medical Sciences &amp; Technology, Jai Nagar W Rd, Chalakkuzhi, Thiruvananthapuram, Kerala 695011
+                </td>
+                <td>695011</td>
+                <td>Thiruvananthapuram</td>
+                <td>Kerala</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>105</th>
+                <td>State Public Health Laboratory, Trivandrum</td>
+                <td>State Public Health Laboratory,
+                    Red Cross Road, Near, General Hospital Rd, Rishimangalam, Pattoor, Thiruvananthapuram, Kerala 695024
+                </td>
+                <td>695024</td>
+                <td>Thiruvananthapuram</td>
+                <td>Kerala</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>106</th>
+                <td>Interuniversity, kottayam</td>
+                <td>Interuniversity, kottayam, Thalappady,
+                    Kerala 686019</td>
+                <td>686019</td>
+                <td>Thalappady</td>
+                <td>Kerala</td>
+                <td>Government Laboratory
+                </td>
+            </tr>
+            <tr>
+                <th>107</th>
+                <td>Malabar Cancer Centre, Thalassery</td>
+                <td>Malabar Cancer
+                    Centre, Kodiyeri, Muzhikkara - MCC Rd, Illathaazha, Thalassery, Kerala 670103</td>
+                <td>670103</td>
+                <td>Thalassery</td>
+                <td>Kerala</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>108</th>
+                <td>
+                    Central University of Kerala, Kasaragod</td>
+                <td>Central University of Kerala, Tejaswini Hills, Periye
+                    (PO), Kasaragod (DT), Kerala - 671316</td>
+                <td>671316</td>
+                <td>Kasaragod</td>
+                <td>Kerala</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>109</th>
+                <td>DDRC SRL Diagnostics Pvt Ltd, Ernakulam
+                </td>
+                <td>DDRC SRL Diagnostics Pvt Ltd, DDRC SRL TOWER,G-131, Panampilly Nagar, Ernakulam, Kerala 682036
+                </td>
+                <td>682036</td>
+                <td>Ernakulam</td>
+                <td>Kerala</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>110</th>
+                <td>MIMS Laboratory Services, Kozhikode</td>
+                <td>Aster MIMS Laboratory Services, Mini,
+                    Mini Bypass Rd, Govindapuram, Kozhikode, Kerala 673016</td>
+                <td>673016</td>
+                <td>Kozhikode</td>
+                <td>Kerala</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>111</th>
+                <td>Sonam Nurboo Memorial
+                    Hospital, Leh-Ladakh</td>
+                <td>Sonam Nurboo Memorial Hospital, Old Leh Rd, Leh-Ladakh, Ladakh 194101
+                </td>
+                <td>194101</td>
+                <td>Ladakh</td>
+                <td>Ladakh</td>
+                <td>Collection Site</td>
+            </tr>
+            <tr>
+                <th>
+                    112</th>
+                <td>National Institute of Virology, Pune</td>
+                <td>National Institute of Virology, Pune,
+                    130/1, Pashan - Sus Rd, Pashan Gaon, Pashan, Pune, Maharashtra 411021</td>
+                <td>411021</td>
+                <td>Pune
+                </td>
+                <td>Maharashtra</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>113</th>
+                <td>Seth GS
+                    Medical College &amp; KEM Hospital, Mumbai</td>
+                <td>Seth GS Medical College &amp; KEM Hospital,
+                    Acharya Donde Marg, Parel, Mumbai, Maharashtra 400012</td>
+                <td>400012</td>
+                <td>Mumbai</td>
+                <td>
+                    Maharashtra</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>114</th>
+                <td>Kasturba Hospital
+                    for Infectious Diseases, Mumbai</td>
+                <td>Kasturba Hospital for Infectious Diseases, Sane Guruji Marg,
+                    Arya Nagar, Chinchpokli, Mumbai, Maharashtra 400034</td>
+                <td>400034</td>
+                <td>Mumbai</td>
+                <td>
+                    Maharashtra</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>115</th>
+                <td>National Institute
+                    of Virology Field Unit, Mumbai</td>
+                <td>National Institute of Virology Field Unit, Haffkine Institute
+                    Compound, A D Marg, Parel Mumbai 4000012</td>
+                <td>400012</td>
+                <td>Mumbai</td>
+                <td>Maharashtra</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>116</th>
+                <td>Armed Forces Medical College, Pune
+                </td>
+                <td>Armed Forces Medical College, Southern Command, Solapur Road, Wanowrie, near Race Course, Pune,
+                    Maharashtra 411040</td>
+                <td>411040</td>
+                <td>Pune</td>
+                <td>Maharashtra</td>
+                <td>Government
+                    Laboratory</td>
+            </tr>
+            <tr>
+                <th>117</th>
+                <td>BJ Medical College, Pune</td>
+                <td>BJ Medical
+                    College, Jai Prakash Narayan Road, Railway Station Rd, near Pune, Maharashtra 411001</td>
+                <td>411001
+                </td>
+                <td>Pune</td>
+                <td>Maharashtra</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>118</th>
+                <td>Indira Gandhi Government Medical College &amp; Hospital, Nagpur</td>
+                <td>Indira Gandhi Government
+                    Medical College &amp; Hospital, Mayo Hospital, Central Ave, Mominpura, Nagpur 440018</td>
+                <td>440018
+                </td>
+                <td>Nagpur</td>
+                <td>Maharashtra</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>119
+                </th>
+                <td>Grant Medical College &amp; Sir JJ Hospital, Mumbai</td>
+                <td>Grant Medical College &amp; Sir
+                    JJ Hospital, J J Marg, Nagpada-Mumbai Central, Noor Baug, Mazgaon, Mumbai, Maharashtra 400008</td>
+                <td>400008</td>
+                <td>Mumbai</td>
+                <td>Maharashtra</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>120</th>
+                <td>Govt Medical College &amp; Hospital Aurangabad</td>
+                <td>Govt Medical College &amp;
+                    Hospital, University Road, Jubilee Park, Aurangabad, Maharashtra 431004</td>
+                <td>431004</td>
+                <td>
+                    Aurangabad</td>
+                <td>Maharashtra</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>121</th>
+                <td>V. M. Govt. Medical College, Solapur</td>
+                <td>V. M. Govt. Medical College, Opp. District Court,
+                    Solapur, Maharashtra 413003, India</td>
+                <td>413003</td>
+                <td>Solapur</td>
+                <td>Maharashtra</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>122</th>
+                <td>Haffkine Institute, Mumbai</td>
+                <td>
+                    Haffkine Institute, Acharya Donde Marg, Parel, Mumbai 400012, Maharashtra</td>
+                <td>400012</td>
+                <td>
+                    Mumbai</td>
+                <td>Maharashtra</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>123</th>
+                <td>
+                    Shree Bhausaheb Hire Govt Medical College, Dhule</td>
+                <td>Shree Bhausaheb Hire Govt Medical College,
+                    Chakkarbardi, Malegaon Road, Dhule, Maharashtra 424001</td>
+                <td>424001</td>
+                <td>Dhule</td>
+                <td>
+                    Maharashtra</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>124</th>
+                <td>Government Medical
+                    College And Hospital, Miraj</td>
+                <td>Government Medical College And Hospital, Pandharpur Rd, Maji
+                    Sainik Vasahat, Miraj, Maharashtra 416410</td>
+                <td>416410</td>
+                <td>Miraj</td>
+                <td>Maharashtra</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>125</th>
+                <td>All India Institute of Medical
+                    Sciences (AIIMS), Nagpur</td>
+                <td>All India Institute of Medical Sciences (AIIMS), Plot No. 2, Sector
+                    - 20, MIHAN, Nagpur 441108 Maharashtra</td>
+                <td>441108</td>
+                <td>Nagpur</td>
+                <td>Maharashtra</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>126</th>
+                <td>Nagpur Veterinary College, Nagpur</td>
+                <td>Department of Veterinary Public Health &amp; Epidemiology, Nagpur Veterinary College. Seminary
+                    Hills,
+                    Nagpur 440006, Maharashtra</td>
+                <td>440006</td>
+                <td>Nagpur</td>
+                <td>Maharashtra</td>
+                <td>
+                    Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>127</th>
+                <td>Advanced Centre for Treatment, Research
+                    and Education in Cancer (ACTREC), Tata Memorial Centre, Navi Mumbai</td>
+                <td>Advanced Centre for
+                    Treatment, Research and Education in Cancer (ACTREC), Tata Memorial Centre, Kharghar, Navi Mumbai -
+                    410210, INDIA.</td>
+                <td>410210</td>
+                <td>Navi Mumbai</td>
+                <td>Maharashtra</td>
+                <td>Government
+                    Laboratory</td>
+            </tr>
+            <tr>
+                <th>128</th>
+                <td>Govt. Medical College, Akola</td>
+                <td>Govt.
+                    Medical College, Ashok Vatika, District Collector Office Road, Near, Bhandaraj BK, Akola,
+                    Maharashtra
+                    444001, India</td>
+                <td>444001</td>
+                <td>Mumbai</td>
+                <td>Maharashtra</td>
+                <td>Government
+                    Laboratory</td>
+            </tr>
+            <tr>
+                <th>129</th>
+                <td>National Centre for Cell Science (NCCS), Pune</td>
+                <td>National Centre for Cell Science, NCCS Complex, Savitribai Phule Pune University Campus, Ganeshkhind
+                    Road, Pune - 411007, Maharashtra State, India</td>
+                <td>411007</td>
+                <td>Pune</td>
+                <td>Maharashtra
+                </td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>130</th>
+                <td>ICMR-National Institute for
+                    Research in Reproductive Health, Mumbai</td>
+                <td>ICMR-National Institute for Research in Reproductive
+                    Health, Jehangir Merwanji Street, Parel, Mumbai 400012, Maharashtra, India</td>
+                <td>400012</td>
+                <td>
+                    Mumbai</td>
+                <td>Maharashtra</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>131</th>
+                <td>
+                    Rajiv Gandhi Medical College and Chhatrapati Shivaji Maharaj Hospital, Thane</td>
+                <td>Rajiv Gandhi
+                    Medical College and Chhatrapati Shivaji Maharaj Hospital, Thane - Belapur Rd, Kalwa West, Budhaji
+                    Nagar,
+                    Kalwa, Thane, Maharashtra 400605</td>
+                <td>400605</td>
+                <td>Thane</td>
+                <td>Maharashtra</td>
+                <td>
+                    Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>132</th>
+                <td>Thyrocare Technologies Limited, Navi
+                    Mumbai</td>
+                <td>Thyrocare Technologies Limited, D-37/1 MIDC Turbhe Opp Sandoz, MIDC Industrial Area,
+                    Sanpada, Navi Mumbai, Maharashtra 400703</td>
+                <td>400703</td>
+                <td>Navi Mumbai</td>
+                <td>Maharashtra
+                </td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>133</th>
+                <td>Suburban Diagnostics (India) Pvt.
+                    Ltd., Mumbai</td>
+                <td>Suburban Diagnostics (India) Pvt. Ltd., 2nd Floor Aston, Shastri Nagar, Andheri
+                    (W), Mumbai, Maharashtra, India 400053</td>
+                <td>400053</td>
+                <td>Mumbai</td>
+                <td>Maharashtra</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>134</th>
+                <td>Metropolis Healthcare Ltd, Mumbai</td>
+                <td>Metropolis Healthcare Ltd, 4th Floor, Commerical Building 1-A, Kohinoor City Mall, Off LBS Marg,
+                    Vidyavihar (West), Mumbai, Maharashtra 400070</td>
+                <td>400070</td>
+                <td>Mumbai</td>
+                <td>Maharashtra
+                </td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>135</th>
+                <td>Sir H. N. Reliance Foundation
+                    Hospital and Research Center, Mumbai</td>
+                <td>Sir H.N. Reliance Foundation Hospital and Research
+                    Center, Reliance Life Sciences Pvt Ltd, MIDC, R-282, Thane - Belapur Rd, T.T.C. Industrial Area,
+                    Rabale,
+                    Navi Mumbai, Maharashtra 400701</td>
+                <td>400701</td>
+                <td>Navi Mumbai</td>
+                <td>Maharashtra</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>136</th>
+                <td>SRL Diagnostics, Goregaon West</td>
+                <td>
+                    SRL Diagnostics, Plot No 1, Prime Square building, Gaiwadi Industrial, estate, Next to Patel Petrol
+                    Pump, Opposite Mahesh Nagar, S.V. Road, Goregaon West, Mumbai, Maharashtra 400062</td>
+                <td>400062</td>
+                <td>Mumbai</td>
+                <td>Maharashtra</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>137</th>
+                <td>
+                    A.G Diagnostics Pvt Ltd, Pune</td>
+                <td>A.G Diagnostics Pvt Ltd, CTS No 809, F.P. 147, Nayantara
+                    Building, Bhandarkar Road, Pune, Maharashtra 411004</td>
+                <td>411004</td>
+                <td>Mumbai</td>
+                <td>
+                    Maharashtra</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>138</th>
+                <td>Kokilaben Dhirubhai
+                    Ambani Hospital Laboratory, Mumbai</td>
+                <td>Kokilaben Dhirubhai Ambani Hospital Laboratory, Four
+                    Bungalows, Andheri (West), Mumbai, Maharashtra, India</td>
+                <td>400053</td>
+                <td>Mumbai</td>
+                <td>
+                    Maharashtra</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>139</th>
+                <td>InfeXn Laboratories
+                    Private Ltd, Thane</td>
+                <td>InfeXn Laboratories Private Ltd, A/131, Therelek Compound, Road Number 23,
+                    Wagle Industrial Estate, Thane West, Thane, Maharashtra 400604</td>
+                <td>400604</td>
+                <td>Thane</td>
+                <td>Maharashtra</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>140</th>
+                <td>iGenetic Diagnostics
+                    Pvt. Ltd., Mumbai</td>
+                <td>iGenetic Diagnostics Pvt. Ltd., 1st Floor, krislon House, Off Marol
+                    Military Road, Andheri East, Mumbai Maharashtra 400072</td>
+                <td>400072</td>
+                <td>Mumbai</td>
+                <td>
+                    Maharashtra</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>141</th>
+                <td>Tata Memorial Centre
+                    Diagnostic Services, Tata Memorial Hospital, Mumbai</td>
+                <td>Tata Memorial Centre Diagnostic Services,
+                    Tata Memorial Hospital, Dept. of Microbiology &amp; Serology, 6th Floor, Anexe Building, Tata
+                    Memorial
+                    Hospital, Dr. E. Borges Road, Parel, Mumbai 400012</td>
+                <td>400012</td>
+                <td>Mumbai</td>
+                <td>
+                    Maharashtra</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>142</th>
+                <td>Sahyadri Speciality
+                    Labs, Pune</td>
+                <td>Sahyadri Speciality Labs, Plot No. 54, S.No. 80-90, Lokmanya Colony, Kothrud,
+                    Pune-411038, Maharashtra, India</td>
+                <td>411038</td>
+                <td>Pune</td>
+                <td>Maharashtra</td>
+                <td>
+                    Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>143</th>
+                <td>Dr. Jariwala Laboratory &amp; Diagnostics
+                    LLP, Mumbai</td>
+                <td>Dr. Jariwala Laboratory &amp; Diagnostics LLP, 1st Floor, Rasraj Heights, Rokadia
+                    Lane, Near Gokul Hotel Off,Mandpeshwar Road, Borivli (W), Mumbai-400092, Maharashtra</td>
+                <td>400092
+                </td>
+                <td>Mumbai</td>
+                <td>Maharashtra</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>144</th>
+                <td>Metropolis Healthcare Limited, Pune</td>
+                <td>Construction House, Ground Floor, First Floor &amp;
+                    Second Floor, 796/189-B, Bhandarkar Institute Road, Pune – 411004, Maharashtra, India</td>
+                <td>411004
+                </td>
+                <td>Pune</td>
+                <td>Maharashtra</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>145</th>
+                <td>Ruby Hall Clinic, Department of Laboratory, Grant Medical Foundation, Pune</td>
+                <td>Ruby Hall Clinic,
+                    Department of Laboratory, Grant Medical Foundation, 40, Sassoon Road, Pune – 411001, Maharashtra,
+                    India
+                </td>
+                <td>411001</td>
+                <td>Pune</td>
+                <td>Maharashtra</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>146</th>
+                <td>Qualilife Diagnostics, Mumbai</td>
+                <td>Qualilife Diagnostics, Balaji Arcade, 1st
+                    Floor, 544/A, Above Janata Sahakari Bank, Netaji Subhash Road, Mulud – West, Mumbai-400080</td>
+                <td>
+                    400080</td>
+                <td>Mumbai</td>
+                <td>Maharashtra</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>
+                    147</th>
+                <td>SRL Diagnostics- Dr. Avinash Phadke (SRL Diagnostics Pvt Ltd), Mumbai</td>
+                <td>SRL
+                    Diagnostics- Dr. Avinash Phadke (SRL Diagnostics Pvt Ltd), Mahalaxmi Engineering Estate, 2nd floor,
+                    near
+                    k.j.khilnani high school, Mahim West, Mahim, Mumbai, Maharashtra 400016</td>
+                <td>400016</td>
+                <td>
+                    Mumbai</td>
+                <td>Maharashtra</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>148</th>
+                <td>
+                    Sunflower Laboratory And Diagnostic Center, Mumbai</td>
+                <td>Sunflower Laboratory And Diagnostic
+                    Center, Keshav Kunj, Marve Road, Malad West, Mumbai, Maharashtra 400064</td>
+                <td>400064</td>
+                <td>
+                    Mumbai</td>
+                <td>Maharashtra</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>149</th>
+                <td>
+                    Aditya Birla Memorial Hospital –Laboratory (A Unit of Aditya Birla Health Services Ltd.), Pune</td>
+                <td>Aditya Birla Memorial Hospital –Laboratory (A Unit of Aditya Birla Health Services Ltd.), Aditya
+                    Birla
+                    Hospital Marg, Chinchwad, Pune-411033, Maharashtra, India</td>
+                <td>411033</td>
+                <td>Pune</td>
+                <td>
+                    Maharashtra</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>150</th>
+                <td>Department of
+                    Laboratory Medicine – P.D. Hinduja National Hospital &amp; Medical Research Centre, Mumbai</td>
+                <td>
+                    Department of Laboratory Medicine – P.D. Hinduja National Hospital &amp; Medical Research Centre,
+                    Veer
+                    Savarkar Marg, Mahim (W), Mumbai- 400016, Maharashtra, India</td>
+                <td>400016</td>
+                <td>Mumbai</td>
+                <td>Maharashtra</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>151</th>
+                <td>All India Institute
+                    of Medical Sciences (AIIMS), Bhopal</td>
+                <td>All India Institute of Medical Sciences (AIIMS), AIIMS
+                    Campus Rd, Saket Nagar, Habib Ganj, Bhopal, Madhya Pradesh 462026</td>
+                <td>462026</td>
+                <td>Bhopal
+                </td>
+                <td>Madhya Pradesh</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>152</th>
+                <td>
+                    National Institute for Research in Tribal Health, Jabalpur</td>
+                <td>National Institute for Research in
+                    Tribal Health, Nagpur Road, near NSCB Medical Collage, Dhanvantri Nagar, Shastri Nagar, Jabalpur,
+                    Madhya
+                    Pradesh 482003</td>
+                <td>482003</td>
+                <td>Jabalpur</td>
+                <td>Madhya Pradesh</td>
+                <td>Government
+                    Laboratory</td>
+            </tr>
+            <tr>
+                <th>153</th>
+                <td>Mahatma Gandhi Memorial Medical College, Indore</td>
+                <td>MGM Medical College, A.B.Road, Indore, 452001 Indore, Madhya Pradesh</td>
+                <td>452001</td>
+                <td>
+                    Indore</td>
+                <td>Madhya Pradesh</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>154</th>
+                <td>Gandhi Medical College, Bhopal</td>
+                <td>Gandhi Medical College, Sultania Rd, near Hamidia Hospital,
+                    Royal Market, Bhopal, Madhya Pradesh 462001</td>
+                <td>462001</td>
+                <td>Bhopal</td>
+                <td>Madhya
+                    Pradesh</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>155</th>
+                <td>Bhopal Memorial
+                    Hospital &amp; Research Centre, Bhopal</td>
+                <td>Bhopal Memorial Hospital &amp; Research Centre, Raisen
+                    Rd, Near Best Price, BMHRC Campus, Karond, Bhopal, Madhya Pradesh 462038</td>
+                <td>462038</td>
+                <td>
+                    Bhopal</td>
+                <td>Madhya Pradesh</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>156</th>
+                <td>Gajra Raja Medical College, Gwalior</td>
+                <td>Gajra Raja Medical College, Yadav Colony, Lashkar,
+                    Gwalior, Madhya Pradesh 474009</td>
+                <td>474009</td>
+                <td>Gwalior</td>
+                <td>Madhya Pradesh</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>157</th>
+                <td>ICAR-National Institute of High Security
+                    Animal Diseases (ICAR-NIHSAD), Bhopal</td>
+                <td>ICAR-National Institute of High Security Animal
+                    Diseases (ICAR-NIHSAD), Anand Nagar, Bhopal- 462022, Madhya Pradesh, India</td>
+                <td>462022</td>
+                <td>
+                    Bhopal</td>
+                <td>Madhya Pradesh</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>158</th>
+                <td>Defence Research &amp; Development Establishment (DRDE), Gwalior</td>
+                <td>Defence Research &amp;
+                    Development Organisation, Jhansi Road, Gwalior-474002, Madhya Pradesh</td>
+                <td>474002</td>
+                <td>
+                    Gwalior</td>
+                <td>Madhya Pradesh</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>159</th>
+                <td>Bundelkhand Government College, Sagar</td>
+                <td>Bundelkhand Government College, Shivaji Ward, Tili Rd,
+                    Sagar, Madhya Pradesh 470001</td>
+                <td>470001</td>
+                <td>Sagar</td>
+                <td>Madhya Pradesh</td>
+                <td>
+                    Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>160</th>
+                <td>Chirayu Medical College &amp; Hospital,
+                    Bhopal</td>
+                <td>Chirayu Medical College &amp; Hospital, Bhopal Indore Highway Bhainsakhedi, Bairagarh,
+                    Bhopal, Madhya Pradesh 462030</td>
+                <td>462030</td>
+                <td>Bhopal</td>
+                <td>Madhya Pradesh</td>
+                <td>
+                    Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>161</th>
+                <td>Jawaharlal Nehru Institute of Medical
+                    Sciences, Imphal</td>
+                <td>Jawaharlal Nehru Institute of Medical Sciences, Porompat, Imphal, Manipur
+                    795004</td>
+                <td>795004</td>
+                <td>Imphal</td>
+                <td>Manipur</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>162</th>
+                <td>Regional Institute of Medical Sciences, Imphal</td>
+                <td>Regional Institute
+                    of Medical Sciences, Lamphel Road, Lamphelpat, Imphal, Manipur 795004</td>
+                <td>795004</td>
+                <td>
+                    Imphal</td>
+                <td>Manipur</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>163</th>
+                <td>
+                    North Eastern Indira Gandhi Regional Institute of Health and Medical Sciences (NEIGRIHMS), Shillong
+                </td>
+                <td>North Eastern Indira Gandhi Regional Institute of Health and Medical Sciences (NEIGRIHMS),
+                    NEIGRIHMS,Mawdiangdiang Shillong-793018, Meghalaya, India</td>
+                <td>793018</td>
+                <td>Shillong</td>
+                <td>Meghalaya</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>164</th>
+                <td>Zoram Medical
+                    College, Aizwal</td>
+                <td>Zoram Medical College, State Referral Hospital, Falkawn, Aizawl, Mizoram
+                    796005</td>
+                <td>796005</td>
+                <td>Aizawl</td>
+                <td>Mizoram</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>165</th>
+                <td>ICMR-Regional Medical Research Centre (RMRC), Bhubaneswar</td>
+                <td>
+                    ICMR-Regional Medical Research Centre (RMRC), Chandrasekharpur, Bhubaneswar - 751 023, Odisha</td>
+                <td>751023</td>
+                <td>Bhubaneswar</td>
+                <td>Odisha</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>166</th>
+                <td>All India Institute of Medical Sciences (AIIMS), Bhubaneswar</td>
+                <td>All India
+                    Institute of Medical Sciences (AIIMS), Sijua, Patrapada, Bhubaneswar, Odisha 751019</td>
+                <td>751019
+                </td>
+                <td>Bhubaneswar</td>
+                <td>Odisha</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>167
+                </th>
+                <td>SCB Medical College, Cuttack</td>
+                <td>SCB Medical College, PG Hostel, Cuttack, Odisha 753001
+                </td>
+                <td>753001</td>
+                <td>Cuttack</td>
+                <td>Odisha</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>168</th>
+                <td>M.K.C.G Medical College, Berhampur</td>
+                <td>M.K.C.G Medical College, National
+                    Highway 59, Berhampur, District - Ganjam, Odisha. Pin: 760 004, India</td>
+                <td>760004</td>
+                <td>
+                    Berhampur</td>
+                <td>Odisha</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>169</th>
+                <td>
+                    Institute of Life Sciences (ILS), Bhubaneswar</td>
+                <td>Institute of Life Sciences (ILS), NALCO Square,
+                    Bhubaneswar 751023, Odisha, India</td>
+                <td>751023</td>
+                <td>Bhubaneswar</td>
+                <td>Odisha</td>
+                <td>
+                    Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>170</th>
+                <td>Ispat General Hospital (IGH), Rourkela
+                </td>
+                <td>Ispat General Hospital (IGH), Sector 19, Rourkela Steel Plant, Rourkela, 769011, Odisha, India
+                </td>
+                <td>769011</td>
+                <td>Rourkela</td>
+                <td>Odisha</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>171</th>
+                <td>Department of Laboratory Services Apollo Hospitals, Bhubaneswar</td>
+                <td>Department
+                    of Laboratory Services Apollo Hospitals, Plot no 251, Sainik School Rd, Unit 15, Gajapati Nagar,
+                    Bhubaneswar, Odisha 751005</td>
+                <td>751005</td>
+                <td>Bhubaneswar</td>
+                <td>Odisha</td>
+                <td>Private
+                    Laboratory</td>
+            </tr>
+            <tr>
+                <th>172</th>
+                <td>Jawaharlal Institute of Postgraduate Medical
+                    Education and Research (JIPMER), Puducherry</td>
+                <td>JIPMER Campus Rd, Gorimedu, Dhanvantari Nagar,
+                    Puducherry, 605006</td>
+                <td>605006</td>
+                <td>Puducherry</td>
+                <td>Puducherry</td>
+                <td>Government
+                    Laboratory</td>
+            </tr>
+            <tr>
+                <th>173</th>
+                <td>Government Medical College, Amritsar</td>
+                <td>
+                    Government Medical College, Medical Enclave, Amritsar, Punjab 143001</td>
+                <td>143001</td>
+                <td>
+                    Amritsar</td>
+                <td>Punjab</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>174</th>
+                <td>
+                    Government Medical College, Patiala</td>
+                <td>Government Medical College, Sangrur Rd, New Lal Bagh
+                    Colony, Patiala, Punjab 147001</td>
+                <td>147001</td>
+                <td>Patiala</td>
+                <td>Punjab</td>
+                <td>
+                    Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>175</th>
+                <td>Guru Gobind Singh Medical College &amp;
+                    Hospital, Faridkot</td>
+                <td>Guru Gobind Singh Medical College &amp; Hospital, Sadiq Road, Faridkot,
+                    Punjab 151203, India</td>
+                <td>151203</td>
+                <td>Faridkot</td>
+                <td>Punjab</td>
+                <td>Government
+                    Laboratory</td>
+            </tr>
+            <tr>
+                <th>176</th>
+                <td>Department of Microbiology, Dayanand Medical College
+                    and Hospital, Ludhiana</td>
+                <td>Department of Microbiology, Dayanand Medical College and Hospital,
+                    Civil Lines, Tagore Nagar, Ludhiana, Punjab 141001</td>
+                <td>141001</td>
+                <td>Ludhiana</td>
+                <td>
+                    Punjab</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>177</th>
+                <td>Tuli Diagnostic Centre,
+                    Amritsar</td>
+                <td>Tuli Diagnostic Centre, Majitha Road, Opp. Guru Nanak Dev Hospital, Amritsar-143001,
+                    ,Punjab, India</td>
+                <td>143001</td>
+                <td>Amritsar</td>
+                <td>Punjab</td>
+                <td>Private Laboratory
+                </td>
+            </tr>
+            <tr>
+                <th>178</th>
+                <td>Sawai Man Singh (SMS) Medical College, Jaipur</td>
+                <td>SMS
+                    Medical College, Jawahar Lal Nehru Marg, Gangawal Park, Adarsh Nagar, Jaipur, Rajasthan 302004</td>
+                <td>302004</td>
+                <td>Jaipur</td>
+                <td>Rajasthan</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>179</th>
+                <td>Dr. Sampurnanand Medical College, Jodhpur</td>
+                <td>Dr. S.N. Medical College, Residency
+                    Road, Near Sriram Excellency Hotel, Sector-D, Shastri Nagar, opposite Petrol Pump, Jodhpur,
+                    Rajasthan
+                    342003</td>
+                <td>342003</td>
+                <td>Jodhpur</td>
+                <td>Rajasthan</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>180</th>
+                <td>Jhalawar Medical College, Jhalawar</td>
+                <td>Jhalawar Medical College,
+                    N.H.-12, Kota Rd, Jhalawar, Rajasthan 326001</td>
+                <td>326001</td>
+                <td>Jhalawar</td>
+                <td>Rajasthan
+                </td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>181</th>
+                <td>RNT Medical College, Udaipur</td>
+                <td>RNT Medical College, Court Chowk, City\'s Prime Health Care Area, Udaipur, Rajasthan 313001</td>
+                <td>313001</td>
+                <td>Udaipur</td>
+                <td>Rajasthan</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>182</th>
+                <td>S.P. Medical College, Bikaner</td>
+                <td>S.P. Medical College, PBM Hospital, Bikaner,
+                    Rajasthan 334001</td>
+                <td>334001</td>
+                <td>Bikaner</td>
+                <td>Rajasthan</td>
+                <td>Government
+                    Laboratory</td>
+            </tr>
+            <tr>
+                <th>183</th>
+                <td>All India Institute of Medical Sciences (AIIMS),
+                    Jodhpur</td>
+                <td>All India Institute of Medical Sciences (AIIMS), Basni Industrial Area, MIA 2nd
+                    Phase, Basni, Jodhpur, Rajasthan 342005</td>
+                <td>342005</td>
+                <td>Jodhpur</td>
+                <td>Rajasthan</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>184</th>
+                <td>JLN Medical College, Ajmer</td>
+                <td>JLN
+                    Medical College, Kala Bagh, Ajmer, Rajasthan 305001</td>
+                <td>305001</td>
+                <td>Ajmer</td>
+                <td>
+                    Rajasthan</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>185</th>
+                <td>Govt. Medical
+                    College, Kota</td>
+                <td>Govt. Medical College, Rangbari Rd, Sector - A, Rangbari, Kota, Rajasthan
+                    324010</td>
+                <td>324010</td>
+                <td>Kota</td>
+                <td>Rajasthan</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>186</th>
+                <td>Central Laboratory, Mahatma Gandhi University of Medical Sciences &amp;
+                    Technology, Jaipur</td>
+                <td>Central Laboratory, Mahatma Gandhi University of Medical Sciences &amp;
+                    Technology, Ricco Industrial Area, Sitapura, Tonk Road, Jaipur, Rajasthan 302022</td>
+                <td>302022</td>
+                <td>Jaipur</td>
+                <td>Rajasthan</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>187</th>
+                <td>
+                    Sir Thutob Namgyal Memorial Hospital (STNM), Gangtok</td>
+                <td>STNM Hospital, Sungava, Gangtok, Sikkim
+                    737101</td>
+                <td>737101</td>
+                <td>Gangtok</td>
+                <td>Sikkim</td>
+                <td>Collection Site</td>
+            </tr>
+            <tr>
+                <th>188</th>
+                <td>King Institute of Preventive Medicine and Research, Chennai</td>
+                <td>King Institute
+                    of Preventive Medicine and Research, Chennai</td>
+                <td>600032</td>
+                <td>Chennai</td>
+                <td>Tamil Nadu
+                </td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>189</th>
+                <td>Madras Medical College, Chennai,
+                    Tamil Nadu</td>
+                <td>Madras Medical College, Near Park Town Station, Park Town, Chennai, Tamil Nadu
+                    600003</td>
+                <td>600003</td>
+                <td>Chennai</td>
+                <td>Tamil Nadu</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>190</th>
+                <td>Government Theni Medical College, Theni</td>
+                <td>Govt. Theni Medical
+                    College, k. villakku, Tamil Nadu 625531</td>
+                <td>625531</td>
+                <td>Theni</td>
+                <td>Tamil Nadu</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>191</th>
+                <td>Tirunelveli Medical College, Tirunelveli
+                </td>
+                <td>Tirunelveli Medical College, 3, High Ground Rd, Palayamkottai, Tirunelveli, Tamil Nadu 627011
+                </td>
+                <td>627011</td>
+                <td>Tirunelveli</td>
+                <td>Tamil Nadu</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>192</th>
+                <td>Government Medical College, Thiruvarur</td>
+                <td>Government Medical College,
+                    Collector office Master Plan Complex, Collector Office Road, Thiruvarur, Tamil Nadu 610004</td>
+                <td>
+                    610004</td>
+                <td>Thiruvar</td>
+                <td>Tamil Nadu</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>193</th>
+                <td>Kumar Mangalam Government Medical College, Salem</td>
+                <td>Government Mohan
+                    Kumaramangalam Medical College, Steel Plant Road Sarkar Kollappatty, Salem, Tamil Nadu 636030</td>
+                <td>636030</td>
+                <td>Salem</td>
+                <td>Tamil Nadu</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>194</th>
+                <td>Coimbatore Medical College, Coimbatore</td>
+                <td>Coimbatore Medical College, 1 A, SF No
+                    498, Avinashi Rd, Peelamedu, Civil Aerodrome Post, Coimbatore, Tamil Nadu 641018</td>
+                <td>641018</td>
+                <td>Coimbatore</td>
+                <td>Tamil Nadu</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>195</th>
+                <td>Government Villupuram Medical College, Villupuram</td>
+                <td>Government Villupuram Medical College,
+                    Mundiyampakkam, Villupuram, Tamil Nadu 605601</td>
+                <td>605601</td>
+                <td>Villupuram</td>
+                <td>Tamil
+                    Nadu</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>196</th>
+                <td>Madurai Medical College,
+                    Madurai</td>
+                <td>Medical College, Medical College Rd, Alwarpuram, Madurai, Tamil Nadu 625020</td>
+                <td>625020</td>
+                <td>Madurai</td>
+                <td>Tamil Nadu</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>197</th>
+                <td>K.A.P. Viswanatham Government Medical College, Trichy</td>
+                <td>K.A.P. Viswanatham
+                    Government Medical College, Periyamilaguparai, Colletor\'s office Road, Trichy, Tamil Nadu 620001
+                </td>
+                <td>620001</td>
+                <td>Trichy</td>
+                <td>Tamil Nadu</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>198</th>
+                <td>IRT Perundurai Medical College, Perundurai</td>
+                <td>IRT Perundurai Medical College,
+                    Perundurai -638053 Erode District TamilNadu, India</td>
+                <td>638053</td>
+                <td>Perundurai</td>
+                <td>
+                    Tamil Nadu</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>199</th>
+                <td>Government
+                    Dharmapuri Medical College, Dharmapuri</td>
+                <td>Government Dharmapuri Medical College, Nethaji byepass
+                    Road, Dharmapuri, Tamil Nadu, 636701 India</td>
+                <td>636701</td>
+                <td>Dharmapuri</td>
+                <td>Tamil Nadu
+                </td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>200</th>
+                <td>Government Vellore Medical
+                    College, Vellore</td>
+                <td>Government Vellore Medical College, Sapthalipuram, Pennathur, Adukkamparai,
+                    Tamil Nadu 632011</td>
+                <td>632011</td>
+                <td>Vellore</td>
+                <td>Tamil Nadu</td>
+                <td>Government
+                    Laboratory</td>
+            </tr>
+            <tr>
+                <th>201</th>
+                <td>State Public Health Laboratory, Chennai</td>
+                <td>
+                    State Public Health Laboratory, Chokkalingam Nagar, Teynampet, Chennai, Tamil Nadu 600086</td>
+                <td>
+                    600086</td>
+                <td>Chennai</td>
+                <td>Tamil Nadu</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>202</th>
+                <td>ICMR-National Institute of Epidemiology, Chennai</td>
+                <td>ICMR-National Institute of
+                    Epidemiology, Second Main Road, Tamil Nadu Housing Board, Ayapakkam, Near Ambattur, Chennai 600077,
+                    Tamil Nadu, India</td>
+                <td>600077</td>
+                <td>Chennai</td>
+                <td>Tamil Nadu</td>
+                <td>Government
+                    Laboratory</td>
+            </tr>
+            <tr>
+                <th>203</th>
+                <td>Kanyakumari Government Medical College, Nagercoil
+                </td>
+                <td>Kanyakumari Government Medical College, Asaripallam, Nagercoil, Kanyakumari, Tamil Nadu,
+                    India-629201</td>
+                <td>629201</td>
+                <td>Nagercoil</td>
+                <td>Tamil Nadu</td>
+                <td>Government
+                    Laboratory</td>
+            </tr>
+            <tr>
+                <th>204</th>
+                <td>Christian Medical College, Vellore</td>
+                <td>
+                    Department of Clinical Virology, Christian Medical College, 9th Floor, ASHA Building, IDA Scudder
+                    Road,
+                    Christian Medical College, Vellore, Tamil Nadu, India Pin 632004</td>
+                <td>632004</td>
+                <td>Vellore
+                </td>
+                <td>Tamil Nadu</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>205</th>
+                <td>Apollo
+                    Hospitals Enterprise Limited, Chennai</td>
+                <td>Department of Laboratory Services, Apollo Hospitals
+                    Enterprise Limited, 21 Greams Lane, Off Greams Road, Chennai Tamil Nadu Pin 600006</td>
+                <td>600006
+                </td>
+                <td>Chennai</td>
+                <td>Tamil Nadu</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>206</th>
+                <td>Neuberg Ehrlich Laboratory Pvt Ltd, Chennai</td>
+                <td>Neuberg Ehrlich Laboratory Pvt Ltd, 46 &amp; 48,
+                    Masilamani Road, Balaji Nagar, Royapettah, Chennai - 600 014, Tamil Nadu</td>
+                <td>600014</td>
+                <td>
+                    Chennai</td>
+                <td>Tamil Nadu</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>207</th>
+                <td>Sri
+                    Ramachandra Laboratory Services, Chennai</td>
+                <td>No.1 Ramachandra Nagar, Porur, Chennai - 600116
+                    Tamil Nadu, India</td>
+                <td>600116</td>
+                <td>Chennai</td>
+                <td>Tamil Nadu</td>
+                <td>Private
+                    Laboratory</td>
+            </tr>
+            <tr>
+                <th>208</th>
+                <td>Microbiological Laboratory, Coimbatore</td>
+                <td>
+                    Microbiological laboratory, no-02, kings colony, united nagar, veerakeralam road, vadavalli,
+                    Coimbatore,
+                    Tamil Nadu, Indi</td>
+                <td>641002</td>
+                <td>Coimbatore</td>
+                <td>Tamil Nadu</td>
+                <td>Private
+                    Laboratory</td>
+            </tr>
+            <tr>
+                <th>209</th>
+                <td>Y. R. Gaitonde Centre for AIDS Research and
+                    Education (YRG Care), Chennai</td>
+                <td>Division of Molecular Biology &amp; Genotyping, YRG CARE
+                    Infectious Diseases Laboratory VHS Hospital Campus, Rajiv Gandhi Road, Tharamani, Chennai, Tamil
+                    Nadu
+                    600113</td>
+                <td>600113</td>
+                <td>Chennai</td>
+                <td>Tamil Nadu</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>210</th>
+                <td>K.A.P. Viswanatham Government Medical College, Trichy</td>
+                <td>
+                    K.A.P.Viswanatham Government Medical College, Periyamilaguparai, Colletor\'s office Road, Trichy,
+                    Tamil
+                    Nadu 620001</td>
+                <td>620001</td>
+                <td>Trichy</td>
+                <td>Tamil Nadu</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>211</th>
+                <td>Madras Medical Mission Clinical Laboratory Services, Chennai</td>
+                <td>Madras Medical Mission Clinical, Laboratory Services, 4-A, Dr. J. Jayalalitha Nagar, Mogappair,
+                    Chennai-600037, India</td>
+                <td>600037</td>
+                <td>Chennai</td>
+                <td>Tamil Nadu</td>
+                <td>Private
+                    Laboratory</td>
+            </tr>
+            <tr>
+                <th>212</th>
+                <td>MIOT Hospitals – Department of Laboratory Medicine,
+                    Chennai</td>
+                <td>MIOT Hospitals – Department of Laboratory Medicine, No : 4/112, Mount Poonamallee
+                    Road, Manapakkam, Chennai-600089, Tamil Nadu</td>
+                <td>600089</td>
+                <td>Chennai</td>
+                <td>Tamil Nadu
+                </td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>213</th>
+                <td>PSG Hospitals Diagnostic Centre,
+                    Coimbatore</td>
+                <td>PSG Hospitals Diagnostic Centre, Avinashi Rd, Peelamedu, Coimbatore, Tamil Nadu
+                    641004</td>
+                <td>641004</td>
+                <td>Coimbatore</td>
+                <td>Tamil Nadu</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>214</th>
+                <td>Gandhi Medical College, Secunderabad</td>
+                <td>Gandhi Medical College,
+                    Musheerabad, Padmarao Nagar, Secunderabad, Telangana 500003</td>
+                <td>500003</td>
+                <td>Secunderabad
+                </td>
+                <td>Telangana</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>215</th>
+                <td>Osmania
+                    Medical College, Hyderabad</td>
+                <td>Osmania Medical College, 5-1-876, Turrebaz Khan Rd, Troop Bazaar,
+                    Koti, Hyderabad, Telangana 500095</td>
+                <td>500095</td>
+                <td>Hyderabad</td>
+                <td>Telangana</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>216</th>
+                <td>Sir Ronald Ross of Tropical &amp;
+                    Communicable Diseases, Hyderabad</td>
+                <td>Sir Ronald Ross of Tropical &amp; Communicable Diseases,
+                    (Fever Hospital), CGHS Complex, Old Aiport Road, Motilal Nehru Nagar, Begumpet, Hyderabad, Telangana
+                    500016</td>
+                <td>500016</td>
+                <td>Hyderabad</td>
+                <td>Telangana</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>217</th>
+                <td>Nizam\'s Institute Of Medical Sciences, Hyderabad</td>
+                <td>Punjagutta
+                    Rd, Punjagutta Market, Punjagutta, Hyderabad, Telangana 500082</td>
+                <td>500082</td>
+                <td>Hyderabad
+                </td>
+                <td>Telangana</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>218</th>
+                <td>Institute of
+                    Preventive Medicine, Hyderabad</td>
+                <td>Institute of Preventive Medicine, Narayanaguda, Hyderabad,
+                    Telangana 500029</td>
+                <td>500029</td>
+                <td>Hyderabad</td>
+                <td>Telangana</td>
+                <td>Government
+                    Laboratory</td>
+            </tr>
+            <tr>
+                <th>219</th>
+                <td>CSIR - Centre for Cellular and Molecular Biology,
+                    Hyderabad</td>
+                <td>Centre for Cellular and Molecular Biology, Uppal Rd, IICT Colony, Habsiguda,
+                    Hyderabad, Telangana 500007</td>
+                <td>500007</td>
+                <td>Hyderabad</td>
+                <td>Telangana</td>
+                <td>
+                    Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>220</th>
+                <td>Centre for DNA Fingerprinting and
+                    Diagnostics (CDFD), Hyderabad</td>
+                <td>Centre for DNA Fingerprinting and Diagnostics (CDFD), Inner
+                    Ring Road, Uppal, Hyderabad – 500039, Telangana, India</td>
+                <td>500039</td>
+                <td>Hyderabad</td>
+                <td>Telangana</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>221</th>
+                <td>Laboratory Services
+                    Apollo Hospitals, Hyderabad</td>
+                <td>Laboratory Services Apollo Hospitals Hyderabad, 6th Floor Health
+                    street Building, Jubilee Hills, Hyderabad 500096</td>
+                <td>500096</td>
+                <td>Hyderabad</td>
+                <td>
+                    Telangana</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>222</th>
+                <td>Vijaya Diagnostic
+                    Centre Pvt. Ltd, Hyderabad</td>
+                <td>Vijaya Diagnostic Centre Pvt. Ltd, 3-6-16 &amp; 17, Street No.19,
+                    opp. Lane to Tanishq, Chandra Nagar, Himayatnagar, Hyderabad, Telangana 500029</td>
+                <td>500029</td>
+                <td>Hyderabad</td>
+                <td>Telangana</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>223</th>
+                <td>
+                    Vimta Labs Ltd., Hyderabad</td>
+                <td>Vimta Labs Ltd., Plot No. 142, Phase 2, IDA Cherlapally,
+                    Hyderabad, Telangana, India 500051</td>
+                <td>500051</td>
+                <td>Hyderabad</td>
+                <td>Telangana</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>224</th>
+                <td>Apollo Health and Lifestyle
+                    Limited-Secunderabad, Diagnostics Laboratory, Hyderabad</td>
+                <td>Apollo Health and Lifestyle
+                    Limited-Secunderabad, Diagnostics Laboratory, NOS, 140/A, 140/B, 140/C, 141/A, 141/B, 141/C,
+                    Thokatta
+                    Village, Bowenpally, Secunderabad, Telangana, Hyderabad-500011</td>
+                <td>500011</td>
+                <td>Hyderabad
+                </td>
+                <td>Telangana</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>225</th>
+                <td>Dr. Remedies
+                    labs Private Limited , Hyderabad</td>
+                <td>Dr. Remedies labs Private Limited , Titus Plaza, 1st Floor,
+                    Sharma Commercial Complex, Hyderabad, Telangana 500082</td>
+                <td>500082</td>
+                <td>Hyderabad</td>
+                <td>Telangana</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>226</th>
+                <td>PATHCARE Labs Pvt.
+                    Ltd., Hyderabad</td>
+                <td>PATHCARE Labs Pvt. Ltd., Sy. #34, Opp: Geethanjali Engineering College,
+                    Cheeryal (V), Keesara (M), Greater Hyderabad, Telangana 501301</td>
+                <td>501301</td>
+                <td>Hyderabad
+                </td>
+                <td>Telangana</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>227</th>
+                <td>AMERICAN
+                    Institute of Pathology and Laboratory Sciences Private Limited, Hyderabad</td>
+                <td>AMERICAN Institute
+                    of Pathology and Laboratory Sciences Private Limited, Door No. 1-100/CCH, Second Floor, At Citizens
+                    Hospital, Nallagandla, Serilingampally, Hyderabad, Telangana 500019</td>
+                <td>500019</td>
+                <td>
+                    Hyderabad</td>
+                <td>Telangana</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>228</th>
+                <td>
+                    Medcis Pathlabs India Pvt.Ltd., Secunderabad</td>
+                <td>Medcis Pathlabs India Pvt.Ltd., Plot 16 &amp;
+                    17, Swathi Plaza, Bhavani Enclave, Anand Nagar, New Bowenpally, near Asish Gardens, Hyderabad,
+                    Telangana
+                    500011</td>
+                <td>500011</td>
+                <td>Hyderabad</td>
+                <td>Telangana</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>229</th>
+                <td>The Department of Laboratory Medicine, Yashoda Hospital, Secunderabad</td>
+                <td>The Department of Laboratory Medicine, Yashoda Hospital, 9th Floor, 1-1-156 &amp; 157, Alexander
+                    Road,
+                    S. P. Road, Secunderabad, Telangana 500003</td>
+                <td>500003</td>
+                <td>Secunderabad</td>
+                <td>
+                    Telangana</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>230</th>
+                <td>Biognosys Technologies
+                    (India) Private Limited, Hyderabad</td>
+                <td>Biognosys Technologies (India) Private Limited, # 8 -
+                    148/174/11, NRI Colony, ALEAP Industrial Area, Medchal, Malkajgiri, Hyderabad, Telangana 500090,
+                    India
+                </td>
+                <td>500090</td>
+                <td>Hyderabad</td>
+                <td>Telangana</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>231</th>
+                <td>Department of Laboratory Medicine, Star Hospitals, A Unit of UNIMED Healthcare Pvt
+                    Ltd, Hyderabad</td>
+                <td>Department of Laboratory Medicine, Star Hospitals, A Unit of UNIMED Healthcare
+                    Pvt Ltd. # 8-2-594/B, Road No. 10, Banjara Hills, Hyderabad- 500034, Telangana</td>
+                <td>500034</td>
+                <td>Hyderabad</td>
+                <td>Telangana</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>232</th>
+                <td>
+                    Tenet Diagnostics (A Unit of Center for Excellence in Medical Services Private Limited), Hyderabad
+                </td>
+                <td>Tenet Diagnostics (A Unit of Center for Excellence in Medical Services Private Limited), Plot No 51,
+                    Kineta Towers, Journalist Colony, Road No 3, Banjara Hills, Hyderabad, Telangana 500034</td>
+                <td>
+                    500034</td>
+                <td>Hyderabad</td>
+                <td>Telangana</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>233</th>
+                <td>Government Medical College, Agartala</td>
+                <td>Government Medical College, 79 Tilla,
+                    Agartala, Tripura 799006</td>
+                <td>799006</td>
+                <td>Agartala</td>
+                <td>Tripura</td>
+                <td>Government
+                    Laboratory</td>
+            </tr>
+            <tr>
+                <th>234</th>
+                <td>King George\'s Medical University, Lucknow</td>
+                <td>King George\'s Medical University, Shah Mina Rd, Chowk, Lucknow, Uttar Pradesh 226003</td>
+                <td>226003
+                </td>
+                <td>Lucknow</td>
+                <td>Uttar Pradesh</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>235
+                </th>
+                <td>Institute of Medical Sciences, BHU, Varanasi</td>
+                <td>Institute of Medical Sciences, BHU,
+                    Aurobindo Colony, Banaras Hindu University Campus, Varanasi, Uttar Pradesh 221005</td>
+                <td>221005</td>
+                <td>Varanasi</td>
+                <td>Uttar Pradesh</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>236</th>
+                <td>Jawaharlal Nehru Medical College, Aligarh</td>
+                <td>Jawaharlal Nehru Medical College, Medical Rd,
+                    AMU Campus, Aligarh, Uttar Pradesh 202002</td>
+                <td>202002</td>
+                <td>Aligarh</td>
+                <td>Uttar Pradesh
+                </td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>237</th>
+                <td>Command Hospital, Lucknow</td>
+                <td>Command Hospital, Lucknow, Uttar Pradesh 226002</td>
+                <td>226002</td>
+                <td>Lucknow</td>
+                <td>Uttar
+                    Pradesh</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>238</th>
+                <td>Lala Lajpat Rai
+                    Memorial Medical College, Meerut</td>
+                <td>Lala Lajpat Rai Memorial Medical College, Garh Road, Jai
+                    Bhim Nagar, Meerut, Uttar Pradesh 250002</td>
+                <td>250002</td>
+                <td>Meerut</td>
+                <td>Uttar Pradesh
+                </td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>239</th>
+                <td>Sanjay Gandhi Post Graduate
+                    Institute, Lucknow</td>
+                <td>Sanjay Gandhi Post Graduate Institute, New PMSSY Rd, Raibareli Rd,
+                    Lucknow, Uttar Pradesh 226014</td>
+                <td>226014</td>
+                <td>Lucknow</td>
+                <td>Uttar Pradesh</td>
+                <td>
+                    Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>240</th>
+                <td>Uttar Pradesh University of Medical
+                    Sciences, Saifai</td>
+                <td>Uttar Pradesh University of Medical Sciences, Off, Kurawali - Mainpuri -
+                    Etawah Rd, Saifai, Uttar Pradesh 206130</td>
+                <td>206130</td>
+                <td>Saifai</td>
+                <td>Uttar Pradesh
+                </td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>241</th>
+                <td>ICMR- Regional Medical Research
+                    Centre, Gorakhpur</td>
+                <td>ICMR- Regional Medical Research Centre, Baba Raghav Das (BRD) Medical
+                    College Campus, Gorakhpur, Uttar Pradesh PIN-273013</td>
+                <td>273013</td>
+                <td>Gorakhpur</td>
+                <td>
+                    Uttar Pradesh</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>242</th>
+                <td>Maharani Laxmi
+                    Bai Medical College, Jhansi</td>
+                <td>Maharani Laxmi Bai Medical College, Jhansi - Kanpur Road, Jhansi,
+                    Uttar Pradesh 284001, India</td>
+                <td>284001</td>
+                <td>Jhansi</td>
+                <td>Uttar Pradesh</td>
+                <td>
+                    Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>243</th>
+                <td>Motilal Nehru Medical College, Prayagraj
+                </td>
+                <td>Motilal Nehru Medical College, George Town, Prayagraj, Uttar Pradesh 211002, India</td>
+                <td>
+                    211002</td>
+                <td>Prayagraj</td>
+                <td>Uttar Pradesh</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>244</th>
+                <td>Dr. Ram Manohar Lohia Institute of Medical Sciences (DR.RMLIMS), Lucknow</td>
+                <td>
+                    Dr. Ram Manohar Lohia Institute of Medical Sciences (DR.RMLIMS), Vibhuti Khand, Gomtinagar,
+                    Lucknow-226010, Uttar Pradesh, India</td>
+                <td>226010</td>
+                <td>Lucknow</td>
+                <td>Uttar Pradesh</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>245</th>
+                <td>Sarojini Naidu Medical College, Agra
+                </td>
+                <td>S.N. Medical College, Moti Katra, Agra - 282002 (U.P) India</td>
+                <td>282002</td>
+                <td>Agra
+                </td>
+                <td>Uttar Pradesh</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>246</th>
+                <td>
+                    Government Institute of Medical Sciences (GIMS), Greater Noida</td>
+                <td>Government Institute of
+                    Medical Sciences (GIMS), Greater Noida, Gautam Buddha Nagar, U.P. - 201310, India</td>
+                <td>201310</td>
+                <td>Greater Noida</td>
+                <td>Uttar Pradesh</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>247
+                </th>
+                <td>Ganesh Shanker Vidyarthi Memorial Medical College (GSVM Medical College), Kanpur</td>
+                <td>
+                    Ganesh Shanker Vidyarthi Memorial Medical College (GSVM Medical College), Swaroop Nagar, Kanpur
+                    208002
+                    ,Uttar Pradesh</td>
+                <td>208002</td>
+                <td>Kanpur</td>
+                <td>Uttar Pradesh</td>
+                <td>Government
+                    Laboratory</td>
+            </tr>
+            <tr>
+                <th>248</th>
+                <td>National Institute of Biologicals, Noida</td>
+                <td>
+                    National Institute of Biologicals, Plot No. A-32, Sector-62, Institutional Area, Noida -201309,
+                    Uttar
+                    Pradesh, India</td>
+                <td>201309</td>
+                <td>Noida</td>
+                <td>Uttar Pradesh</td>
+                <td>Government
+                    Laboratory</td>
+            </tr>
+            <tr>
+                <th>249</th>
+                <td>RML Mehrotra Pathology Pvt Ltd., Lucknow</td>
+                <td>
+                    RML Mehrotra Pathology Pvt Ltd., A-21/A, Nirala Nagar, Lucknow, Uttar Pradesh 226020</td>
+                <td>226020
+                </td>
+                <td>Lucknow</td>
+                <td>Uttar Pradesh</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>250
+                </th>
+                <td>Department of Laboratory Medicine, Jaypee Hospital, Noida</td>
+                <td>Department of Laboratory
+                    Medicine, Jaypee Hospital, Sector 128, Noida-201304</td>
+                <td>201304</td>
+                <td>Noida</td>
+                <td>Uttar
+                    Pradesh</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>251</th>
+                <td>Government Medical
+                    College, Haldwani</td>
+                <td>Government Medical College, Rampur Rd, Rampur, Haldwani, Uttarakhand 263129
+                </td>
+                <td>263129</td>
+                <td>Haldwani</td>
+                <td>Uttarakhand</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>252</th>
+                <td>All India Institute of Medical Sciences (AIIMS), Rishikesh</td>
+                <td>All India
+                    Institute of Medical Sciences (AIIMS), Virbhadra Road Shivaji Nagar, near Barrage, Sturida Colony,
+                    Rishikesh, Uttarakhand 249203</td>
+                <td>249203</td>
+                <td>Rishikesh</td>
+                <td>Uttarakhand</td>
+                <td>
+                    Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>253</th>
+                <td>Dr. Ahuja’s Pathlogy and Imaging
+                    Centre-Department of Laboratory Medicine, Dehradun</td>
+                <td>Dr. Ahuja’s Pathlogy and Imaging
+                    Centre-Department of Laboratory Medicine, 7-B Astley Hall, Ugrasain Rd, Dehradun, Uttarakhand 248001
+                </td>
+                <td>248001</td>
+                <td>Dehradun</td>
+                <td>Uttarakhand</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>254</th>
+                <td>ICMR-National Institute of Cholera &amp; Enteric Diseases (NICED), Kolkata</td>
+                <td>
+                    ICMR-National Institute of Cholera &amp; Enteric Diseases (NICED), P-33, C.I.T. Road, Scheme XM,
+                    Beleghata, Kolkata 700 010, India</td>
+                <td>700010</td>
+                <td>Kolkata</td>
+                <td>West Bengal</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>255</th>
+                <td>Institute of Post Graduate Medical
+                    Education and Research (IPGMER), Kolkata</td>
+                <td>Institute of Post Graduate Medical Education and
+                    Research (IPGMER), 244, Acharya Jagadish Chandra Bose Rd, Bhowanipore, Kolkata, West Bengal 700020
+                </td>
+                <td>700020</td>
+                <td>Kolkata</td>
+                <td>West Bengal</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>256</th>
+                <td>Midnapore Medical College, Midnapore</td>
+                <td>Midnapore Medical College, Vidyasagar
+                    Road , Paschim Medinipur, Midnapore, West Bengal, 721 101</td>
+                <td>721101</td>
+                <td>Midnapore</td>
+                <td>West Bengal</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>257</th>
+                <td>North Bengal
+                    Medical College, Siliguri</td>
+                <td>North Bengal Medical College, Sushruta Nagar, Siliguri, West Bengal
+                    734012</td>
+                <td>734012</td>
+                <td>Siliguri</td>
+                <td>West Bengal</td>
+                <td>Government Laboratory
+                </td>
+            </tr>
+            <tr>
+                <th>258</th>
+                <td>School of Tropical Medicine, Kolkata</td>
+                <td>School of Tropical
+                    Medicine, 108, Chittaranjan Avenue, Kolkata - 700073, West Bengal</td>
+                <td>700073</td>
+                <td>Kolkata
+                </td>
+                <td>West Bengal</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>259</th>
+                <td>Malda
+                    Medical College, Malda</td>
+                <td>Malda Medical College, Dipak Rd, 3 No. Govt Colony, Uma Roy Sarani,
+                    Malda, West Bengal 732101</td>
+                <td>732101</td>
+                <td>Malda</td>
+                <td>West Bengal</td>
+                <td>
+                    Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>260</th>
+                <td>Command Hospital (Eastern Command),
+                    Kolkata</td>
+                <td>Command Hospital (Eastern Command), Alipore, Kolkata, Pin- 700027, West Bengal, India
+                </td>
+                <td>700027</td>
+                <td>Kolkata</td>
+                <td>West Bengal</td>
+                <td>Government Laboratory</td>
+            </tr>
+            <tr>
+                <th>261</th>
+                <td>Apollo Gleneagles Hospitals, Kolkata</td>
+                <td>Apollo Gleneagles Hospitals, 58, Canal
+                    Circular Road, Kolkata, West Bengal 700054</td>
+                <td>700054</td>
+                <td>Kolkata</td>
+                <td>West Bengal
+                </td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>262</th>
+                <td>Tata Medical Center, Kolkata</td>
+                <td>Department of Laboratory Sciences, Tata Medical Center, 14, MAR(E-W), DH Block(Newtown), Action Area
+                    I,
+                    Newtown, Kolkata, West Bengal 700160</td>
+                <td>700160</td>
+                <td>Kolkata</td>
+                <td>West Bengal</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>263</th>
+                <td>Laboratory Services, Peerless Hospitex
+                    Hospital &amp; Research Center Limited, Kolkata</td>
+                <td>Laboratory Services, Peerless Hospitex
+                    Hospital &amp; Research Center Limited, 360, Panchasayar, Kolkata, West Bengal 700094, India</td>
+                <td>
+                    700094</td>
+                <td>Kolkata</td>
+                <td>West Bengal</td>
+                <td>Private Laboratory</td>
+            </tr>
+            <tr>
+                <th>264</th>
+                <td>AMRI Hospitals, Department of Laboratory Medicine, Kolkata</td>
+                <td>AMRI Hospitals,
+                    Department of Laboratory Medicine, JC 16 &amp; 17, Sector III, Salt Lake City, Kolkata, West Bengal
+                    -700098, India</td>
+                <td>700098</td>
+                <td>Kolkata</td>
+                <td>West Bengal</td>
+                <td>Private Laboratory
+                </td>
+            </tr>
+            <tr>
+                <th>265</th>
+                <td>Suraksha Diagnostics Pvt. Ltd., Kolkata</td>
+                <td>Suraksha
+                    Diagnostics Pvt. Ltd., 12/1, Premises No. 02-0327, DG Block, Action Area 1D, Newtown, Kolkata, West
+                    Bengal 700156, India</td>
+                <td>700156</td>
+                <td>Kolkata</td>
+                <td>West Bengal</td>
+                <td>Private
+                    Laboratory</td>
+            </tr>
+            <tr>
+                <th>266</th>
+                <td>Dr. Lal PathLabs Ltd, Reference Laboratory, Kolkata
+                </td>
+                <td>Dr. Lal PathLabs Ltd, Reference Laboratory, Plot No. CB-31/1, Premises No. 031-0199, Street No,
+                    199 Action area IC, Newtown, Kolkata-700156, West Bengal</td>
+                <td>700156</td>
+                <td>Kolkata</td>
+                <td>West Bengal</td>
+                <td>Private Laboratory</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{%endblock%}
