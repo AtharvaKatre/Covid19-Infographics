@@ -14,7 +14,7 @@ def index(request):
     }
     return render(request, 'index.html',context)
     
-def states(request):
+def india(request):
      context = {
         'total_confirmed': get_data('total_confirmed'),
         'total_active': get_data('total_active'),
@@ -22,7 +22,7 @@ def states(request):
         'total_deaths': get_data('total_deaths'),
 
     }
-     return render(request, 'states.html', context)
+     return render(request, 'india.html', context)
 
 def testing_labs(request):
     context = {}

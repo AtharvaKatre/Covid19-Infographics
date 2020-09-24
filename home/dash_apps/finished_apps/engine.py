@@ -111,7 +111,7 @@ state_app1.layout = html.Div([
 
 # daily positive line graph
 home_app2 = DjangoDash('home_app2')
-fig = px.line(x=date_list[:-1], y=daily_positive_list[:-1],
+fig = px.line(x=date_list[:-2], y=daily_positive_list[:-2],
               color_discrete_sequence=['crimson'])
 fig.update_layout(xaxis_title='', yaxis_title='No. of positive cases')
 home_app2.layout = html.Div([
@@ -126,7 +126,7 @@ home_app2.layout = html.Div([
 
 # daily death line graph
 state_app2 = DjangoDash('state_app2')
-fig = px.line(x=date_list[:-1], y=daily_death_list[:-1],
+fig = px.line(x=date_list[:-2], y=daily_death_list[:-2],
               color_discrete_sequence=['crimson'])
 fig.update_layout(xaxis_title='', yaxis_title='No. of deaths due to covid-19')
 state_app2.layout = html.Div([
