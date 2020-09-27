@@ -66,45 +66,6 @@ daily_death_list = [death_list[i] - death_list[i-1]
 daily_positive_list.insert(0, 0)
 daily_death_list.insert(0, 0)
 
-#India geojson
-wiki_df =pd.read_html('https://en.wikipedia.org/wiki/COVID-19_pandemic_in_India')[6].dropna(how='all',axis=1)
-wiki_df = wiki_df.drop(wiki_df.tail(2).index)
-wiki_df.columns = ['States','Cases','Deaths','Recovered','Active']
-wiki_df['Cases'] = wiki_df['Cases'].apply(lambda x: x.split('[')[0]).apply(lambda x: x.replace(',',''))
-wiki_df['Deaths'] = wiki_df['Deaths'].apply(lambda x: x.split('[')[0]).apply(lambda x: x.replace(',',''))
-wiki_df.drop(17,inplace=True)
-india_geojson = json.load(open("static/india_geojson.geojson", "r"))
-state_id_map = {}
-for feature in india_geojson["features"]:
-    feature["id"] = feature["properties"]["state_code"]
-    state_id_map[feature["properties"]["st_nm"]] = feature["id"]
-wiki_df["id"] = wiki_df["States"].apply(lambda x: state_id_map[x])
-fig2 = px.choropleth_mapbox(
-    wiki_df,
-    locations="id",
-    geojson=india_geojson,
-    color="Cases",
-    hover_name="States",
-    hover_data=["Cases"],
-    title="Heat Map of Covid Cases in India",
-    mapbox_style="carto-positron",
-    color_continuous_scale=px.colors.sequential.dense,
-    center={"lat": 24, "lon": 78},
-    zoom=3,
-    opacity=1,
-)
-fig2.update_layout(height=600,width=1200, plot_bgcolor='rgb(248,249,252)', paper_bgcolor='rgb(248,249,252)',)
-fig2.show()  
-state_app3 = DjangoDash('state_app1')
-state_app3.layout = html.Div([
-    html.Div([
-        dcc.Graph(
-            id = 'timeline slider',
-            figure = fig2,
-        )
-    ])
-])
-
 # Statewise Testing Bar Graph
 app = DjangoDash('SimpleExample')
 fig1 = px.bar(x=df['State'], y=df['Positive'], title='State-wise Cases',
