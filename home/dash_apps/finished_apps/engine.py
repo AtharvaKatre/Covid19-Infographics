@@ -360,7 +360,7 @@ def get_fig():
         go.Scatter(x=date_list[223:253], y=daily_positive_list[223:253], name='Unlock 4', mode='lines'),
     )
 
-    fig.update_layout(font=dict(family="Arial, Helvetica, sans-serif",size=24,), yaxis_title='No. of positive cases', title_text="Lockdown vs Unlock", title_x=0.5)
+    fig.update_layout(font=dict(family="Arial, Helvetica, sans-serif",size=24,), yaxis_title='No. of positive cases', title_text="Lockdown vs Unlock", title_x=0.5, plot_bgcolor='rgb(248,249,252)', paper_bgcolor='rgb(248,249,252)')
     return fig
 
 state_app3.layout = html.Div([
