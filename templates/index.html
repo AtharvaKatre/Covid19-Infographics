@@ -7,7 +7,6 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
-
 <title>Covid.info - Home</title>
 
 <!-- Live Meter -->
@@ -42,16 +41,7 @@
     }
 </style>
 <div class="container text-center" style=' width: 100%; padding-bottom: 20px; padding-top: 15px;'>
-    <div class="row">
 
-
-        <!-- <div class="col text-center">
-            <h3><b>Live Worldwide Meter</b></h3>
-        </div> -->
-
-
-
-    </div>
     <div class="row text-center">
         <div class="col-xl-3 col-md-6 mb-4">
             <div class="counter bg-info">
@@ -186,51 +176,56 @@
 
 <!-- Choropleth Globe -->
 
-<div class="container mt-4">
-    <h1 class=" text-center mb-3" style="font-size: 200%; font-family: Arial, Helvetica, sans-serif;"></h1>
-    <div class="{% plotly_class name='home_app5' %} card mx-auto " style="height: 90%; width: 75%; background-color: #F8F9FC; border: 0;">
-        {% plotly_app name='home_app5' ratio=0.8 %}
+<div class="container mt-4 mb-0" style='padding-bottom: 0;'>
+    <div class="{% plotly_class name='home_app5' %} card " style=" background-color: #F8F9FC; border: 0; ">
+        {% plotly_app name='home_app5' ratio=0.7 %}
     </div>
 </div>
 
 <!-- End of Choropleth Globe -->
 
-<!-- pie charts -->
-<h1 class="text-center mt-0"
-    style=" font-family: Arial, Helvetica, sans-serif; height: 20%; width: 100%; padding: 0%; margin-right: 0; margin-left: 0; background-color: #F8F9FC; border: 0;">
-    Total Confirmed, Recovered, Active and Death Cases</h1>
+<!-- Timeline Slider -->
 <div class="container">
-    <div class="{% plotly_class name='home_app4' %} cards "
-        style=" height: 10%; width: 50%; padding: 0%; float: left; ">
-        {% plotly_app name='home_app4' ratio=0.9 %}
+    <div class="{% plotly_class name='home_app1' %} card " style="background-color: #F8F9FC; border: 0;">
+        {% plotly_app name='home_app1' ratio=0.9 %}
     </div>
-    <div class="{% plotly_class name='home_app3' %} cards " style="height: 10%; width: 50%; padding: 0%; float: right;">
-        {% plotly_app name='home_app3' ratio=0.9 %}
-    </div>
+
 </div>
-<!-- end of pie charts -->
+<!-- end of timeline slider -->
 
 <!-- Symptoms Graph -->
-<div class="container mt-5 mb-5">
-    <h1 class="text-center" style="font-family: Arial, Helvetica, sans-serif;">Symptoms of Coronavirus</h1>
-    <div class="{% plotly_class name='home_app6' %} cards">
-        {% plotly_app name='home_app6' ratio=0.45 %}
+<div class="container mt-0 mb-0">
+    <div class="{% plotly_class name='home_app6' %} cards" style="padding: 0%; margin-top: 0%; margin-bottom: 0;">
+        {% plotly_app name='home_app6' ratio=0.68 %}
     </div>
 </div>
 
 <!-- end of symptoms graph -->
-<!-- Age graph -->
-<h1 class="text-center mt-5"
-    style=" font-family: Arial, Helvetica, sans-serif; height: 20%; width: 100%; padding: 0%; margin-right: 0; margin-left: 0;">
-    Age-wise Trend of Coronavirus</h1>
-<div class="container mb-5 ">
-    <div class="{% plotly_class name='home_app7' %} cards mx-auto "
-        style="height:10%; width: 50%; padding: 0%; margin-right:0; float: left;">
-        {% plotly_app name='home_app7' ratio=1 %}
+
+<!-- pie charts -->
+<div class="container">
+    <div class="{% plotly_class name='home_app4' %} cards " style=" padding: 0%; margin-top: 0%; margin-bottom: 0;">
+        {% plotly_app name='home_app4' ratio=0.68 %}
     </div>
-    <div class="{% plotly_class name='home_app8' %} cards mx-auto"
-        style="height: 10%; width: 50%; padding: 0%; margin-left: 0; float: right;">
-        {% plotly_app name='home_app8' ratio=1 %}
+</div>
+
+<div class="container">
+    <div class="{% plotly_class name='home_app3' %} cards " style="padding: 0%; margin-top: 0%;  margin-bottom: 0;">
+        {% plotly_app name='home_app3' ratio=0.68 %}
+    </div>
+</div>
+<!-- end of pie charts -->
+
+<!-- Age graph -->
+<div class="container">
+    <div class="{% plotly_class name='home_app7' %} cards " style="padding: 0%; margin-top: 0%; margin-bottom: 0;">
+        {% plotly_app name='home_app7' ratio=0.68 %}
+    </div>
+</div>
+
+<div class="container">
+    <div class="{% plotly_class name='home_app8' %} cards " style="padding: 0%; margin-top: 0%; margin-bottom: 0;">
+        {% plotly_app name='home_app8' ratio=0.68 %}
     </div>
 </div>
 
