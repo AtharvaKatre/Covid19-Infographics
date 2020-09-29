@@ -203,39 +203,39 @@ home_app4.layout = html.Div([
 ])
 
 # Choropleth map
-home_app5 = DjangoDash('home_app5')
+# home_app5 = DjangoDash('home_app5')
 
-countries_data = requests.get('https://api.covid19api.com/summary')
-countries_df = pd.DataFrame(countries_data.json()['Countries'])
-
-
-def globe_data():
-    fig = px.choropleth(countries_df, locations="Country",
-                        color="TotalConfirmed",
-                        hover_data=['NewConfirmed', 'TotalConfirmed',
-                                    'NewDeaths', 'TotalDeaths', 'NewRecovered',
-                                    'TotalRecovered', 'Date',
-                                    ],
-                        locationmode="country names",
-                        projection="orthographic",
-                        color_continuous_scale=px.colors.sequential.dense,
-                        width=590,
-
-                        ).update_layout(clickmode='event+select', font=dict(family="Arial, Helvetica, sans-serif",size=24,), title_text='Global Covid Heatmap',
-                                            title_x=0.5, paper_bgcolor='rgb(248,249,252)', plot_bgcolor='rgb(248,249,252)')
-    fig.update_layout(geo=dict(bgcolor= 'rgb(248,249,252)'))
-    return fig
+# countries_data = requests.get('https://api.covid19api.com/summary')
+# countries_df = pd.DataFrame(countries_data.json()['Countries'])
 
 
-home_app5.layout = html.Div(children=[
-    dcc.Graph(
-        id='choropleth_map',
-        figure=globe_data(),
-        config={
-            'displayModeBar': False,
-        }
-    ),
-])
+# def globe_data():
+#     fig = px.choropleth(countries_df, locations="Country",
+#                         color="TotalConfirmed",
+#                         hover_data=['NewConfirmed', 'TotalConfirmed',
+#                                     'NewDeaths', 'TotalDeaths', 'NewRecovered',
+#                                     'TotalRecovered', 'Date',
+#                                     ],
+#                         locationmode="country names",
+#                         projection="orthographic",
+#                         color_continuous_scale=px.colors.sequential.dense,
+#                         width=590,
+
+#                         ).update_layout(clickmode='event+select', font=dict(family="Arial, Helvetica, sans-serif",size=24,), title_text='Global Covid Heatmap',
+#                                             title_x=0.5, paper_bgcolor='rgb(248,249,252)', plot_bgcolor='rgb(248,249,252)')
+#     fig.update_layout(geo=dict(bgcolor= 'rgb(248,249,252)'))
+#     return fig
+
+
+# home_app5.layout = html.Div(children=[
+#     dcc.Graph(
+#         id='choropleth_map',
+#         figure=globe_data(),
+#         config={
+#             'displayModeBar': False,
+#         }
+#     ),
+# ])
 
 # symptoms bar
 home_app6 = DjangoDash('home_app6')
