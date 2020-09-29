@@ -323,3 +323,49 @@ home_app8.layout = html.Div([
         )
     ])
 ])
+
+state_app3 = DjangoDash('state_app3')
+
+def get_fig():
+    fig = go.Figure()
+    fig.add_trace(
+        go.Scatter( x=date_list[63:84], y=daily_positive_list[63:84], name='Lockdown 1', mode='lines' ),
+    )
+
+    fig.add_trace(
+        go.Scatter(x=date_list[84:103], y=daily_positive_list[84:103], name='Lockdown 2', mode='lines'),
+    )
+
+    fig.add_trace(
+        go.Scatter(x=date_list[103:117], y=daily_positive_list[103:117], name='Lockdown 3', mode='lines'),
+    )
+
+    fig.add_trace(
+        go.Scatter(x=date_list[117:131], y=daily_positive_list[117:131], name='Lockdown 4', mode='lines'),
+    )
+
+    fig.add_trace(
+        go.Scatter(x=date_list[131:161], y=daily_positive_list[131:161], name='Unlock 1', mode='lines'),
+    )
+
+    fig.add_trace(
+        go.Scatter(x=date_list[161:192], y=daily_positive_list[161:192], name='Unlock 2', mode='lines'),
+    )
+
+    fig.add_trace(
+        go.Scatter(x=date_list[192:223], y=daily_positive_list[192:223], name='Unlock 3', mode='lines'),
+    )
+
+    fig.add_trace(
+        go.Scatter(x=date_list[223:253], y=daily_positive_list[223:253], name='Unlock 4', mode='lines'),
+    )
+
+    fig.update_layout(font=dict(family="Arial, Helvetica, sans-serif",size=24,), yaxis_title='No. of positive cases', title_text="Lockdown vs Unlock", title_x=0.5)
+    return fig
+
+state_app3.layout = html.Div([
+    dcc.Graph(
+        id = 'lockdownvsunlock',
+        figure = get_fig()
+    )
+])
