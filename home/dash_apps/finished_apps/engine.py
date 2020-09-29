@@ -45,6 +45,7 @@ def get_data(parameter):
     if parameter == 'total_deaths':
         return total_deaths
 
+
 # all data from day one
 date_list = []
 confirmed_list = []
@@ -66,11 +67,40 @@ daily_death_list = [death_list[i] - death_list[i-1]
 daily_positive_list.insert(0, 0)
 daily_death_list.insert(0, 0)
 
+#world timeline slider
+home_app1 = DjangoDash('home_app1')
+worlddf = pd.read_csv('https://raw.githubusercontent.com/datasets/covid-19/master/data/countries-aggregated.csv')
+worldfig = px.choropleth(worlddf,               
+              locations='Country',
+              color = 'Confirmed',              
+              locationmode="country names", 
+              projection = 'natural earth',
+              animation_frame = "Date",
+              hover_data = ['Country','Confirmed',],
+              color_continuous_scale='inferno_r'            
+            ).update_layout(font=dict(family="Arial, Helvetica, sans-serif",size=24,), title='Covid Outbreak Timeline', title_x=0.5, paper_bgcolor='rgb(248,249,252)', geo=dict(bgcolor= 'rgb(248,249,252)'),coloraxis_colorbar=dict(title="No. of cases",),height=600)
+home_app1.layout = html.Div([
+    dcc.Graph(
+        id = 'world timeline map',
+        figure = worldfig,
+        config={
+        'displayModeBar': False
+    }
+    )
+])
+
+
 # Statewise Testing Bar Graph
+wiki_df =pd.read_html('https://en.wikipedia.org/wiki/COVID-19_pandemic_in_India')[6].dropna(how='all',axis=1)
+wiki_df = wiki_df.drop(wiki_df.tail(2).index)
+wiki_df.columns = ['States','Cases','Deaths','Recovered','Active']
+wiki_df['Cases'] = wiki_df['Cases'].apply(lambda x: x.split('[')[0]).apply(lambda x: x.replace(',',''))
+wiki_df['Deaths'] = wiki_df['Deaths'].apply(lambda x: x.split('[')[0]).apply(lambda x: x.replace(',',''))
 app = DjangoDash('SimpleExample')
-fig1 = px.bar(x=df['State'], y=df['Positive'], title='State-wise Cases',
+fig1 = px.bar(x=wiki_df['States'], y=wiki_df['Cases'], title='State-wise Cases',
               color_discrete_sequence=px.colors.sequential.Plasma, )
-fig1.update_layout(xaxis_title='', yaxis_title='', title_x=0.5,paper_bgcolor='rgb(248,249,252)', plot_bgcolor='rgb(248,249,252)',)
+fig1.update_layout(xaxis_title='', yaxis_title='Total Positive Cases', font=dict(family="Arial, Helvetica, sans-serif",size=24,),
+                    title_x=0.5,paper_bgcolor='rgb(248,249,252)', plot_bgcolor='rgb(248,249,252)',)
 app.layout = html.Div([
     html.Div([
         dcc.Graph(
@@ -99,9 +129,11 @@ state_app1.layout = html.Div([
                 ],
                 'layout': {
                     'title': 'Positive results among total test samples ',
+                    'title_x':0.5,
                     'barmode': 'stack',
                     'plot_bgcolor': '#f8f9fc',
-                    'paper_bgcolor': '#f8f9fc',                 
+                    'paper_bgcolor': '#f8f9fc',
+                    'font': dict(family="Arial, Helvetica, sans-serif",size=24,),               
                 }
 
             }
@@ -112,9 +144,9 @@ state_app1.layout = html.Div([
 
 # daily positive line graph
 home_app2 = DjangoDash('home_app2')
-fig = px.line(x=date_list[:-1], y=daily_positive_list[:-1],
+fig = px.line(x=date_list, y=daily_positive_list,
               color_discrete_sequence=['crimson'])
-fig.update_layout(xaxis_title='', yaxis_title='No. of positive cases',paper_bgcolor='rgb(248,249,252)', plot_bgcolor='rgb(248,249,252)',)
+fig.update_layout(font=dict(family="Arial, Helvetica, sans-serif",size=24,), title='Daily Reported Positive Cases',title_x=0.5, xaxis_title=None, yaxis_title='No. of positive cases',paper_bgcolor='rgb(248,249,252)', plot_bgcolor='rgb(248,249,252)',)
 home_app2.layout = html.Div([
     html.Div([
         dcc.Graph(
@@ -127,9 +159,9 @@ home_app2.layout = html.Div([
 
 # daily death line graph
 state_app2 = DjangoDash('state_app2')
-fig = px.line(x=date_list[:-1], y=daily_death_list[:-1],
+fig = px.line(x=date_list, y=daily_death_list,
               color_discrete_sequence=['crimson'])
-fig.update_layout(xaxis_title='', yaxis_title='No. of deaths due to covid-19',paper_bgcolor='rgb(248,249,252)', plot_bgcolor='rgb(248,249,252)',)
+fig.update_layout(font=dict(family="Arial, Helvetica, sans-serif",size=24,), title='Daily Reported Covid-19 Deaths',title_x=0.5, xaxis_title=None, yaxis_title='No. of deaths due to covid-19',paper_bgcolor='rgb(248,249,252)', plot_bgcolor='rgb(248,249,252)',)
 state_app2.layout = html.Div([
     html.Div([
         dcc.Graph(
@@ -149,7 +181,7 @@ home_app3.layout = html.Div([
             figure=go.Figure(
                 data=[go.Pie(labels=['Active', 'Deaths', 'Recovered', ],
                              values=[total_world_active, total_world_deaths, total_world_recovered, ])],
-                layout=go.Layout(paper_bgcolor='rgb(248,249,252)', plot_bgcolor='rgb(248,249,252)')
+                layout=go.Layout(font=dict(family="Arial, Helvetica, sans-serif",size=24,), title = 'Active vs Deaths vs Recovered', title_x=0.5, paper_bgcolor='rgb(248,249,252)', plot_bgcolor='rgb(248,249,252)')
             )
         )
     ])
@@ -164,7 +196,7 @@ home_app4.layout = html.Div([
             figure=go.Figure(
                 data=[go.Pie(labels=['Total Confirmed', 'Active'],
                              values=[total_world_cases, total_world_active])],
-                layout=go.Layout(title='', paper_bgcolor='rgb(248,249,252)', plot_bgcolor='rgb(248,249,252)')
+                layout=go.Layout(font=dict(family="Arial, Helvetica, sans-serif",size=24,), title='Total vs Active', title_x=0.48, paper_bgcolor='rgb(248,249,252)', plot_bgcolor='rgb(248,249,252)')
             )
         )
     ])
@@ -187,9 +219,9 @@ def globe_data():
                         locationmode="country names",
                         projection="orthographic",
                         color_continuous_scale=px.colors.sequential.dense,
-                        height=550,
                         width=590,
-                        ).update_layout(clickmode='event+select', title_text='Global Data',
+
+                        ).update_layout(clickmode='event+select', font=dict(family="Arial, Helvetica, sans-serif",size=24,), title_text='Global Covid Heatmap',
                                             title_x=0.5, paper_bgcolor='rgb(248,249,252)', plot_bgcolor='rgb(248,249,252)')
     fig.update_layout(geo=dict(bgcolor= 'rgb(248,249,252)'))
     return fig
@@ -230,10 +262,9 @@ def symptoms_data():
     fig = px.bar(symptoms[['symptom', 'percentage']].sort_values('percentage', ascending=False),
                  x="percentage", y="symptom", color='symptom', color_discrete_sequence=px.colors.cyclical.IceFire, title='Symptom of Coronavirus', orientation='h')
     fig.update_traces(textposition='inside')
-    fig.update_layout(uniformtext_minsize=8, uniformtext_mode='hide')
     fig.update_layout(barmode='stack')
-    fig.update_layout(plot_bgcolor='rgb(248,249,252)', paper_bgcolor='rgb(248,249,252)',
-                      yaxis_title='Symptoms', xaxis_title='Percentages')
+    fig.update_layout(font=dict(size=16,), titlefont=dict(family="Arial, Helvetica, sans-serif",size=24,), plot_bgcolor='rgb(248,249,252)', paper_bgcolor='rgb(248,249,252)',
+                      yaxis_title='Symptoms', xaxis_title='Percentages', title_x=0.5)
     fig.update_layout(template='plotly_white')
     return fig
 
@@ -256,11 +287,8 @@ def age_data():
     fig = go.Figure()
     fig.add_trace(go.Scatter(x=age_df['AgeGroup'], y=age_df['TotalCases'],
                              line_shape='spline', fill='tonexty', fillcolor='steelblue'))
-    fig.update_layout(title="Age wise Confirmed Case Trend(India as of 19 March 20)", font=dict(
-        size=10,
-        # color="RebeccaPurple"
-    ), yaxis_title="Total Number of cases", xaxis_title="Age Group")
-    fig.update_layout(plot_bgcolor='rgb(248,249,252)', paper_bgcolor='rgb(248,249,252)', width=490, height=480)
+    fig.update_layout(font=dict(family="Arial, Helvetica, sans-serif",size=24,), title="Age wise Confirmed Case Trend(India as of 19 March 20)", title_x=0.5, yaxis_title="Total Number of cases", xaxis_title="Age Group")
+    fig.update_layout(plot_bgcolor='rgb(248,249,252)', paper_bgcolor='rgb(248,249,252)',)
     return fig
 
 
@@ -281,8 +309,8 @@ age_death_df = pd.read_csv('static/deaths.csv')
 def age_death_data():
     fig = px.pie(labels=age_death_df['AgeGroup'],
                  names=age_death_df['AgeGroup'], values=age_death_df['Percentage'])
-    fig.update_layout(title="Death Risk by Age ", title_x=0.5,)
-    fig.update_layout(plot_bgcolor='rgb(248,249,252)', paper_bgcolor='rgb(248,249,252)', width=490, height=480)
+    fig.update_layout(font=dict(family="Arial, Helvetica, sans-serif",size=24,), title="Death Risk by Age ", title_x=0.5,)
+    fig.update_layout(plot_bgcolor='rgb(248,249,252)', paper_bgcolor='rgb(248,249,252)',)
     return fig
 
 
