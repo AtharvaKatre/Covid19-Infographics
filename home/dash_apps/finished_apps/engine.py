@@ -70,7 +70,7 @@ daily_death_list.insert(0, 0)
 #world timeline slider
 home_app1 = DjangoDash('home_app1')
 worlddf = pd.read_csv('https://raw.githubusercontent.com/datasets/covid-19/master/data/countries-aggregated.csv')
-df = df[df['Date']>'2020-02-25']
+worlddf = worlddf[worlddf['Date']>'2020-02-25']
 worldfig = px.choropleth(worlddf,               
               locations='Country',
               color = 'Confirmed',              
