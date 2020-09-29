@@ -6,7 +6,7 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+<title>Covid.info - India</title>
 <!-- Live Meter -->
 
 <style>
@@ -40,15 +40,6 @@
     }
 </style>
 <div class="container text-center" style=' width: 100%; padding-bottom: 20px; padding-top: 15px;'>
-    <div class="row">
-
-
-        <!-- <div class="col text-center">
-            <h3><b>India Meter</b></h3>
-        </div> -->
-
-
-    </div>
     <div class="row text-center">
         <div class="col-xl-3 col-md-6 mb-4">
             <div class="counter bg-info">
@@ -176,37 +167,39 @@
             $this.countTo(options);
         }
     });
+
+    $("body").on("contextmenu",function(e){
+     return false;
+});
 </script>
 <!-- End of Live Meter -->
 
 <!-- India heatmap -->
 <div class="container mt-5 mb-5">
-    <h1 class="text-center" style=" font-family: Arial, Helvetica, sans-serif; ">Covid Heat map of India</h1>
+    <h1 class="text-center" style=" font-family: Arial, Helvetica, sans-serif">Covid Heatmap of India</h1>
     <div class="text-center">
-        <img src="static/India_heatmap.png" alt="Indian heatmap">
+        <img style="height: 100%; width: 100%;" src="static/India_heatmap.png" alt="Indian heatmap">
     </div>
 </div>
 <!-- end of India heatmap -->
 
 <!-- Daily Reported Positive Cases -->
-<div class="container mt-5 mb-5">
-    <h1 class="text-center" style=" font-family: Arial, Helvetica, sans-serif; ">Daily Reported Positive Cases</h1>
-    <div class="{% plotly_class name='home_app2' %} card" style="height: 85%; width: 100%; border: 0; margin: 0; background-color: #f8f9fc;">
-        {% plotly_app name='home_app2' ratio=0.45 %}
+<div class="container mt-5" >
+    <div class="{% plotly_class name='home_app2' %} card" style="border: 0; margin: 0; background-color: #f8f9fc;">
+        {% plotly_app name='home_app2' ratio=0.68 %}
     </div>
 </div>
 
 <!-- Daily Reported Deaths -->
-<div class="container mt-5 mb-5">
-    <h1 class="text-center" style=" font-family: Arial, Helvetica, sans-serif; ">Daily Reported Covid-19 Deaths</h1>
-    <div class="{% plotly_class name='state_app2' %} card" style="height: 85%; width: 100%; border:0; background-color: #f8f9fc;">
-        {% plotly_app name='state_app2' ratio=0.45 %}
+<div class="container">
+    <div class="{% plotly_class name='state_app2' %} card" style="border:0; background-color: #f8f9fc;">
+        {% plotly_app name='state_app2' ratio=0.68 %}
     </div>
 </div>
 
 <!-- Timeline Graph-->
-<div class="container mt-3 mb-3">
-    <h1 class="text-center" style=" font-family: Arial, Helvetica, sans-serif; ">State-wise Positive Cases Timeline</h1>
+<div class="container mb-5">
+    <h1 class="text-center" style="font-family: Arial, Helvetica, sans-serif; font-weight: 50;" >State-wise Positive Cases Timeline</h1>
     <div class="flourish-embed flourish-bar-chart-race" data-src="visualisation/3756973"
         data-url="https://flo.uri.sh/visualisation/3756973/embed" aria-label="">
         <script src="https://public.flourish.studio/resources/embed.js"></script>
@@ -215,10 +208,10 @@
 <!-- End of timeline graph -->
 
 <!-- Statewise Graph -->
-<div class="container mt-2 mb-5">
+<div class="container mt-4">
     <h1 class="text-center" style=" font-family: Arial, Helvetica, sans-serif; "></h1>
-    <div class="{% plotly_class name='SimpleExample' %} card" style="height: 92%; width: 100%; border: 0;background-color: #f8f9fc;">
-        {% plotly_app name='SimpleExample' ratio=0.45 %}
+    <div class="{% plotly_class name='SimpleExample' %} card" style=" border: 0;background-color: #f8f9fc;">
+        {% plotly_app name='SimpleExample' ratio=0.68 %}
     </div>
 </div>
 
@@ -226,9 +219,8 @@
 <!-- Total vs Positive Cases -->
 
 <div class="container mt-5 mb-5" >
-    <h1 class="text-center" style=" font-family: Arial, Helvetica, sans-serif; ">Positive cases among Total Tested Samples</h1>
-    <div class="{% plotly_class name='state_app1' %} card" style="height: 85%; width: 100%; border:0; background-color: #f8f9fc;">
-        {% plotly_app name='state_app1' ratio=0.45 %}
+    <div class="{% plotly_class name='state_app1' %} card" style="border:0; background-color: #f8f9fc;">
+        {% plotly_app name='state_app1' ratio=0.68 %}
     </div>
 </div>
 
