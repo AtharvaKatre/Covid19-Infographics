@@ -2,6 +2,7 @@
 {% load static %}
 {% block content %}
 <title>Covid.info - Testing Labs</title>
+
 <script>
     function myFunction() {
         // Declare variables
@@ -28,16 +29,15 @@
 
 <!-- Search form -->
 <div class="container">
-    <input id="myInput" class="form-control " style="width: 50%; margin-top: 80px;" type="text" placeholder="Search"
+    <input id="myInput" class="form-control " style="width: 50%; margin-top: 80px;" type="text" placeholder="Search Eg: Mumbai"
         aria-label="Search" onkeyup="myFunction()">
     <br>
-    <table id='labs_table' align="center" class="table table-striped mt-4">
+    <table style="size: 50%;" id='labs_table' align="center" class="table table-striped mt-4">
         <thead class="thead-dark">
             <tr style="text-align: center;">
                 <th></th>
                 <th>lab</th>
-                <th>
-                    address</th>
+                <th>address</th>
                 <th>pincode</th>
                 <th>city</th>
                 <th>state</th>
