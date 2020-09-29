@@ -67,27 +67,27 @@ daily_death_list = [death_list[i] - death_list[i-1]
 daily_positive_list.insert(0, 0)
 daily_death_list.insert(0, 0)
 
-# #world timeline slider
-# home_app1 = DjangoDash('home_app1')
-# worlddf = pd.read_csv('https://raw.githubusercontent.com/datasets/covid-19/master/data/countries-aggregated.csv')
-# worldfig = px.choropleth(worlddf,               
-#               locations='Country',
-#               color = 'Confirmed',              
-#               locationmode="country names", 
-#               projection = 'natural earth',
-#               animation_frame = "Date",
-#               hover_data = ['Country','Confirmed',],
-#               color_continuous_scale='inferno_r'            
-#             ).update_layout(font=dict(family="Arial, Helvetica, sans-serif",size=24,), title='Covid Outbreak Timeline', title_x=0.5, paper_bgcolor='rgb(248,249,252)', geo=dict(bgcolor= 'rgb(248,249,252)'),coloraxis_colorbar=dict(title="No. of cases",),height=600)
-# home_app1.layout = html.Div([
-#     dcc.Graph(
-#         id = 'world timeline map',
-#         figure = worldfig,
-#         config={
-#         'displayModeBar': False
-#     }
-#     )
-# ])
+#world timeline slider
+home_app1 = DjangoDash('home_app1')
+worlddf = pd.read_csv('https://raw.githubusercontent.com/datasets/covid-19/master/data/countries-aggregated.csv')
+worldfig = px.choropleth(worlddf,               
+              locations='Country',
+              color = 'Confirmed',              
+              locationmode="country names", 
+              projection = 'natural earth',
+              animation_frame = "Date",
+              hover_data = ['Country','Confirmed',],
+              color_continuous_scale='inferno_r'            
+            ).update_layout(font=dict(family="Arial, Helvetica, sans-serif",size=24,), title='Covid Outbreak Timeline', title_x=0.5, paper_bgcolor='rgb(248,249,252)', geo=dict(bgcolor= 'rgb(248,249,252)'),coloraxis_colorbar=dict(title="No. of cases",),height=600)
+home_app1.layout = html.Div([
+    dcc.Graph(
+        id = 'world timeline map',
+        figure = worldfig,
+        config={
+        'displayModeBar': False
+    }
+    )
+])
 
 
 # Statewise Testing Bar Graph
