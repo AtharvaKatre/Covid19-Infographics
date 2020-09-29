@@ -7,11 +7,11 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<!--   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes"> -->
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
   <meta name="description" content="">
   <meta name="author" content="">
 
-  
+  <title>Covid.info</title>
 
   <!-- Custom fonts for this template-->
   <link href="{%static 'vendor/fontawesome-free/css/all.min.css'%}" rel="stylesheet" type="text/css">
@@ -33,7 +33,6 @@
       {% include 'sidebar.html' %}
       <!-- End of Sidebar -->
     </div>
-
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
 
@@ -45,10 +44,10 @@
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
-        <div class="container-fluid" style="margin-left: 50px;" >
+        <div class="container-fluid" >
 
           <!-- Page Heading -->
-           <div class="row" >
+          <div class="row" style="margin-left: 50px;">
             {%block content%}
 
             {%endblock%}
@@ -71,7 +70,7 @@
       <i class="fas fa-angle-up"></i>
     </a>
 
-    
+
     <!-- Bootstrap core JavaScript-->
     <script src="{%static 'vendor/jquery/jquery.min.js'%}"></script>
     <script src="{%static 'vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
