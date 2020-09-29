@@ -287,7 +287,7 @@ def age_data():
     fig = go.Figure()
     fig.add_trace(go.Scatter(x=age_df['AgeGroup'], y=age_df['TotalCases'],
                              line_shape='spline', fill='tonexty', fillcolor='steelblue'))
-    fig.update_layout(font=dict(family="Arial, Helvetica, sans-serif",size=24,), title="Age wise Confirmed Case Trend(India as of 19 March 20)", title_x=0.5, yaxis_title="Total Number of cases", xaxis_title="Age Group")
+    fig.update_layout(font=dict(family="Arial, Helvetica, sans-serif",size=18.5,), title="Age wise Confirmed Case Trend(India as of 19 March 20)", title_x=0.5, yaxis_title="Total Number of cases", xaxis_title="Age Group")
     fig.update_layout(plot_bgcolor='rgb(248,249,252)', paper_bgcolor='rgb(248,249,252)',)
     return fig
 
