@@ -77,7 +77,7 @@ worldfig = px.choropleth(worlddf,
               locationmode="country names", 
               projection = 'natural earth',
               animation_frame = "Date",
-              hover_data = ['Country','Confirmed',],
+              hover_data = ['Country','Confirmed','Recovered','Deaths'],
               color_continuous_scale='inferno_r'            
             ).update_layout(font=dict(family="Arial, Helvetica, sans-serif",size=24,), title='Covid Outbreak Timeline', title_x=0.5, paper_bgcolor='rgb(248,249,252)', geo=dict(bgcolor= 'rgb(248,249,252)'),coloraxis_colorbar=dict(title="No. of cases",),height=600)
 home_app1.layout = html.Div([
