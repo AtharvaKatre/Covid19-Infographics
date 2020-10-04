@@ -145,7 +145,7 @@ state_app1.layout = html.Div([
 
 # daily positive line graph
 home_app2 = DjangoDash('home_app2')
-fig = px.line(x=date_list, y=daily_positive_list,
+fig = px.line(x=date_list[:-1], y=daily_positive_list[:-1],
               color_discrete_sequence=['crimson'])
 fig.update_layout(font=dict(family="Arial, Helvetica, sans-serif",size=24,), title='Daily Reported Positive Cases',title_x=0.5, xaxis_title=None, yaxis_title='No. of positive cases',paper_bgcolor='rgb(248,249,252)', plot_bgcolor='rgb(248,249,252)',)
 home_app2.layout = html.Div([
@@ -160,7 +160,7 @@ home_app2.layout = html.Div([
 
 # daily death line graph
 state_app2 = DjangoDash('state_app2')
-fig = px.line(x=date_list, y=daily_death_list,
+fig = px.line(x=date_list[:-1], y=daily_death_list[:-1],
               color_discrete_sequence=['crimson'])
 fig.update_layout(font=dict(family="Arial, Helvetica, sans-serif",size=24,), title='Daily Reported Covid-19 Deaths',title_x=0.5, xaxis_title=None, yaxis_title='No. of deaths due to covid-19',paper_bgcolor='rgb(248,249,252)', plot_bgcolor='rgb(248,249,252)',)
 state_app2.layout = html.Div([
@@ -358,6 +358,9 @@ def get_fig():
 
     fig.add_trace(
         go.Scatter(x=date_list[223:253], y=daily_positive_list[223:253], name='Unlock 4', mode='lines'),
+    )
+    fig.add_trace(
+        go.Scatter(x=date_list[253:-1], y=daily_positive_list[223:-1], name='Unlock 5', mode='lines'),
     )
 
     fig.update_layout(font=dict(family="Arial, Helvetica, sans-serif",size=24,), yaxis_title='No. of positive cases', title_text="Lockdown vs Unlock", title_x=0.5, plot_bgcolor='rgb(248,249,252)', paper_bgcolor='rgb(248,249,252)')
