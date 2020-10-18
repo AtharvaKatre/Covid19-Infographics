@@ -175,11 +175,14 @@
 <!-- End of Live Meter -->
 
 <!-- India heatmap -->
-<div class="container mt-5 mb-5">
-    <h1 class="text-center" style=" font-family: Arial, Helvetica, sans-serif">Covid Heatmap of India</h1>
-    <div class="text-center">
-        <img style="height: 100%; width: 100%;" src="static/India_heatmap.png" alt="Indian heatmap">
-    </div>
+<div class="container">
+    <script src="jquery.js"></script> 
+    <script> 
+    $(function(){
+      $("#includedContent").load("static/map4.html"); 
+    });
+    </script>
+    <div id="includedContent" alt="Loading Map"></div>
 </div>
 <!-- end of India heatmap -->
 
