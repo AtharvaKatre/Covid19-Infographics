@@ -328,38 +328,42 @@ state_app3 = DjangoDash('state_app3')
 def get_fig():
     fig = go.Figure()
     fig.add_trace(
-        go.Scatter( x=date_list[63:84], y=daily_positive_list[63:84], name='Lockdown 1', mode='lines' ),
+        go.Scatter( x=date_list[63:85], y=daily_positive_list[63:85], name='Lockdown 1', mode='lines' ),
     )
 
     fig.add_trace(
-        go.Scatter(x=date_list[84:103], y=daily_positive_list[84:103], name='Lockdown 2', mode='lines'),
+        go.Scatter(x=date_list[84:104], y=daily_positive_list[84:104], name='Lockdown 2', mode='lines'),
     )
 
     fig.add_trace(
-        go.Scatter(x=date_list[103:117], y=daily_positive_list[103:117], name='Lockdown 3', mode='lines'),
+        go.Scatter(x=date_list[103:118], y=daily_positive_list[103:118], name='Lockdown 3', mode='lines'),
     )
 
     fig.add_trace(
-        go.Scatter(x=date_list[117:131], y=daily_positive_list[117:131], name='Lockdown 4', mode='lines'),
+        go.Scatter(x=date_list[117:132], y=daily_positive_list[117:132], name='Lockdown 4', mode='lines'),
     )
 
     fig.add_trace(
-        go.Scatter(x=date_list[131:161], y=daily_positive_list[131:161], name='Unlock 1', mode='lines'),
+        go.Scatter(x=date_list[131:162], y=daily_positive_list[131:162], name='Unlock 1.0', mode='lines'),
     )
 
     fig.add_trace(
-        go.Scatter(x=date_list[161:192], y=daily_positive_list[161:192], name='Unlock 2', mode='lines'),
+        go.Scatter(x=date_list[161:193], y=daily_positive_list[161:193], name='Unlock 2.0', mode='lines'),
     )
 
     fig.add_trace(
-        go.Scatter(x=date_list[192:223], y=daily_positive_list[192:223], name='Unlock 3', mode='lines'),
+        go.Scatter(x=date_list[192:224], y=daily_positive_list[192:224], name='Unlock 3.0', mode='lines'),
     )
 
     fig.add_trace(
-        go.Scatter(x=date_list[223:253], y=daily_positive_list[223:253], name='Unlock 4', mode='lines'),
+        go.Scatter(x=date_list[223:254], y=daily_positive_list[223:254], name='Unlock 4.0', mode='lines'),
+    )
+
+    fig.add_trace(
+        go.Scatter(x=date_list[253:285], y=daily_positive_list[253:285], name='Unlock 5.0', mode='lines'),
     )
     fig.add_trace(
-        go.Scatter(x=date_list[253:-1], y=daily_positive_list[223:-1], name='Unlock 5', mode='lines'),
+        go.Scatter(x=date_list[284:-1], y=daily_positive_list[284:-1], name='Unlock 6.0', mode='lines'),
     )
 
     fig.update_layout(font=dict(family="Arial, Helvetica, sans-serif",size=24,), yaxis_title='No. of positive cases', title_text="Lockdown vs Unlock", title_x=0.5, plot_bgcolor='rgb(248,249,252)', paper_bgcolor='rgb(248,249,252)')
