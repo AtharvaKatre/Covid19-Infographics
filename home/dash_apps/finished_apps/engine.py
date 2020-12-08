@@ -363,7 +363,10 @@ def get_fig():
         go.Scatter(x=date_list[253:285], y=daily_positive_list[253:285], name='Unlock 5.0', mode='lines'),
     )
     fig.add_trace(
-        go.Scatter(x=date_list[284:-1], y=daily_positive_list[284:-1], name='Unlock 6.0', mode='lines'),
+        go.Scatter(x=date_list[284:315], y=daily_positive_list[284:315], name='Unlock 6.0', mode='lines'),
+    )
+    fig.add_trace(
+        go.Scatter(x=date_list[314:-1], y=daily_positive_list[314:-1], name='December', mode='lines'),
     )
 
     fig.update_layout(font=dict(family="Arial, Helvetica, sans-serif",size=24,), yaxis_title='No. of positive cases', title_text="Lockdown vs Unlock", title_x=0.5, plot_bgcolor='rgb(248,249,252)', paper_bgcolor='rgb(248,249,252)')
