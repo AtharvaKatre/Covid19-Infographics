@@ -6,4 +6,4 @@ Used technologies:
 This project was developed using Django framework.
 Frontend and Css are sourced from Bootstrap.
 Data is fetched from multiple Api in Json format then cleaned, formatted and categorised using Python's Pandas Library.
-For graphs and plots Ploty Dash Components, Plotly Express, Plotly Graph Obj were used.
+For graphs and plots Ploty Dash Components, Plotly Express, Plotly Graph Obj, Mapbox were used.
