@@ -91,7 +91,7 @@ home_app1.layout = html.Div([
 
 
 # Statewise Testing Bar Graph
-wiki_df =pd.read_html('https://en.wikipedia.org/wiki/COVID-19_pandemic_in_India')[5].dropna(how='all',axis=1)
+wiki_df = pd.read_html('https://en.wikipedia.org/wiki/Template:COVID-19_pandemic_data/India_medical_cases_by_state_and_union_territory')[0].dropna(how='all',axis=1)
 wiki_df = wiki_df.drop(wiki_df.tail(2).index)
 wiki_df.columns = ['States','Cases','Deaths','Recovered','Active']
 wiki_df['Cases'] = wiki_df['Cases'].apply(lambda x: x.split('[')[0]).apply(lambda x: x.replace(',',''))
