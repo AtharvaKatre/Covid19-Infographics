@@ -178,6 +178,12 @@
 <div class="container">
 <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://atharvakatre.github.io/covid19-infographics/heatmap" height="710" width="100%"></iframe>
 </div>
+
+<div class="container mt-5" >
+    <div class="{% plotly_class name='state_app' %} card" style="border: 0; margin: 0; background-color: #f8f9fc;">
+        {% plotly_app name='state_app' ratio=0.68 %}
+    </div>
+</div>
 <!-- end of India heatmap -->
 
 <!-- Daily Reported Positive Cases -->
