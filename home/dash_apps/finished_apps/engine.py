@@ -111,6 +111,45 @@ app.layout = html.Div([
 
 ])
 
+#india heatmap
+state_app = DjangoDash('state_app')
+def india_heatmap():
+        wiki_df.drop(17,inplace=True)
+        wiki_df['Date'] = date.today()
+        india_geojson = json.load(open("static/india_geojson.geojson", "r"))
+        state_id_map = {}
+        for feature in india_geojson["features"]:
+            feature["id"] = feature["properties"]["state_code"]
+            state_id_map[feature["properties"]["st_nm"]] = feature["id"]
+        wiki_df["id"] = wiki_df["States"].apply(lambda x: state_id_map[x])
+        wiki_df[['Active','Cases','Deaths','Recovered']] = wiki_df[['Active','Cases','Deaths','Recovered']].apply(pd.to_numeric)
+        fig = px.choropleth_mapbox(
+            wiki_df,
+            locations="id",
+            geojson=india_geojson,
+            color="Cases",
+            hover_name="States",
+            hover_data=["Cases","Active","Recovered","Deaths","Date"],
+            title="",
+            mapbox_style="carto-positron",
+            color_continuous_scale='Inferno_r',
+            center={"lat": 23, "lon": 88},
+            zoom=3.45,
+            opacity=1,
+        )
+        fig.update_layout(height=700, width=950, font=dict(family="Arial, Helvetica, sans-serif",size=24,), title_x=0.5, coloraxis_colorbar=dict(title="Covid cases"),)
+        fig.update_layout(coloraxis_colorbar_x=-0.25,)
+        return fig
+
+state_app.layout = html.Div([
+    html.Div([
+        dcc.Graph(
+            id = 'state app',
+            figure = india_heatmap()
+        )
+    ])
+])
+
 
 # total and positive stack chart
 state_app1 = DjangoDash('state_app1')
@@ -366,7 +405,7 @@ def get_fig():
         go.Scatter(x=date_list[284:315], y=daily_positive_list[284:315], name='Unlock 6.0', mode='lines'),
     )
     fig.add_trace(
-        go.Scatter(x=date_list[314:-1], y=daily_positive_list[314:-1], name='December', mode='lines'),
+        go.Scatter(x=date_list[314:-2], y=daily_positive_list[314:-2], name='December', mode='lines'),
     )
 
     fig.update_layout(font=dict(family="Arial, Helvetica, sans-serif",size=24,), yaxis_title='No. of positive cases', title_text="Lockdown vs Unlock", title_x=0.5, plot_bgcolor='rgb(248,249,252)', paper_bgcolor='rgb(248,249,252)')
