@@ -410,10 +410,10 @@ def get_fig():
         go.Scatter(x=date_list[314:346], y=daily_positive_list[314:346], name='December', mode='lines'),
     )
     fig.add_trace(
-        go.Scatter(x=date_list[346:378], y=daily_positive_list[346:378], name='January 2021', mode='lines'),
+        go.Scatter(x=date_list[345:378], y=daily_positive_list[345:378], name='January 2021', mode='lines'),
     )
     fig.add_trace(
-        go.Scatter(x=date_list[378:-1], y=daily_positive_list[378:-1], name='February 2021', mode='lines'),
+        go.Scatter(x=date_list[377:-1], y=daily_positive_list[377:-1], name='February 2021', mode='lines'),
     )
 
 
