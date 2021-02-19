@@ -407,13 +407,13 @@ def get_fig():
         go.Scatter(x=date_list[284:315], y=daily_positive_list[284:315], name='Unlock 6.0', mode='lines'),
     )
     fig.add_trace(
-        go.Scatter(x=date_list[314:-2], y=daily_positive_list[314:346], name='December', mode='lines'),
+        go.Scatter(x=date_list[314:346], y=daily_positive_list[314:346], name='December', mode='lines'),
     )
     fig.add_trace(
-        go.Scatter(x=date_list[314:-2], y=daily_positive_list[346:378], name='January 2021', mode='lines'),
+        go.Scatter(x=date_list[346:378], y=daily_positive_list[346:378], name='January 2021', mode='lines'),
     )
     fig.add_trace(
-        go.Scatter(x=date_list[314:-2], y=daily_positive_list[378:-1], name='February 2021', mode='lines'),
+        go.Scatter(x=date_list[378:-1], y=daily_positive_list[378:-1], name='February 2021', mode='lines'),
     )
 
 
