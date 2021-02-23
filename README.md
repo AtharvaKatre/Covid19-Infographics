@@ -1,4 +1,4 @@
-Covid.info web app is built to track and analyze the Coronavirus global pandemic.
+Covid.info web app is built to track and analyze the Covid-19 global pandemic.
 It displays live stats of Covid-19 cases from all countries on a Globe Projection.
 Bars and Pie charts are used for easier understanding and studying the trend of the pandemic.
 
