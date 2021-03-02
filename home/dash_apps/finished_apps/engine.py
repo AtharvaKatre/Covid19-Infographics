@@ -12,7 +12,7 @@ from datetime import date
 
 
 df = pd.read_csv('static/data.csv')
-india = requests.get('https://api.covid19api.com/country/india')
+india = requests.get('https://api.covid19api.com/country/ind')
 
 # total india data
 total_confirmed = india.json()[-1]['Confirmed']
