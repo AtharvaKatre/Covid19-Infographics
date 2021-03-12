@@ -96,8 +96,8 @@ home_app1.layout = html.Div([
 wiki_df = pd.read_html('https://en.wikipedia.org/wiki/Template:COVID-19_pandemic_data/India_medical_cases_by_state_and_union_territory')[0].dropna(how='all',axis=1)
 wiki_df = wiki_df.drop(wiki_df.tail(2).index)
 wiki_df.columns = ['States','Cases','Deaths','Recovered','Active']
-wiki_df['Cases'] = wiki_df['Cases'].apply(lambda x: x.split('[')[0]).apply(lambda x: x.replace(',',''))
-wiki_df['Deaths'] = wiki_df['Deaths'].apply(lambda x: x.split('[')[0]).apply(lambda x: x.replace(',',''))
+wiki_df['Cases'] = wiki_df['Cases'].apply(lambda x: x.split('[')[0]).apply(lambda x: x.replace(',','')).apply(lambda x: int(x))
+wiki_df['Deaths'] = wiki_df['Deaths'].apply(lambda x: x.split('[')[0]).apply(lambda x: x.replace(',','')).apply(lambda x: int(x))
 app = DjangoDash('SimpleExample')
 fig1 = px.bar(x=wiki_df['States'], y=wiki_df['Cases'], title='State-wise Cases',
               color_discrete_sequence=px.colors.sequential.Plasma, )
