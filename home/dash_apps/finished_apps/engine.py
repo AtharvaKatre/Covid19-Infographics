@@ -185,7 +185,7 @@ state_app1.layout = html.Div([
 
 # daily positive line graph
 home_app2 = DjangoDash('home_app2')
-fig = px.line(x=date_list[:-2], y=daily_positive_list[:-2],
+fig = px.line(x=date_list[30:-2], y=daily_positive_list[30:-2],
               color_discrete_sequence=['crimson'])
 fig.update_layout(font=dict(family="Arial, Helvetica, sans-serif",size=24,), title='Daily Reported Positive Cases',title_x=0.5, xaxis_title=None, yaxis_title='No. of positive cases',paper_bgcolor='rgb(248,249,252)', plot_bgcolor='rgb(248,249,252)',)
 home_app2.layout = html.Div([
@@ -200,7 +200,7 @@ home_app2.layout = html.Div([
 
 # daily death line graph
 state_app2 = DjangoDash('state_app2')
-fig = px.line(x=date_list[:-2], y=daily_death_list[:-2],
+fig = px.line(x=date_list[30:-2], y=daily_death_list[30:-2],
               color_discrete_sequence=['crimson'])
 fig.update_layout(font=dict(family="Arial, Helvetica, sans-serif",size=24,), title='Daily Reported Covid-19 Deaths',title_x=0.5, xaxis_title=None, yaxis_title='No. of deaths due to covid-19',paper_bgcolor='rgb(248,249,252)', plot_bgcolor='rgb(248,249,252)',)
 state_app2.layout = html.Div([
@@ -410,10 +410,16 @@ def get_fig():
         go.Scatter(x=date_list[314:346], y=daily_positive_list[314:346], name='December', mode='lines'),
     )
     fig.add_trace(
-        go.Scatter(x=date_list[345:378], y=daily_positive_list[345:378], name='January 2021', mode='lines'),
+        go.Scatter(x=date_list[345:376], y=daily_positive_list[345:376], name='January 2021', mode='lines'),
     )
     fig.add_trace(
-        go.Scatter(x=date_list[377:-1], y=daily_positive_list[377:-1], name='February 2021', mode='lines'),
+        go.Scatter(x=date_list[376:404], y=daily_positive_list[376:404], name='February 2021', mode='lines'),
+    )
+    fig.add_trace(
+        go.Scatter(x=date_list[404:435], y=daily_positive_list[404:435], name='March 2021', mode='lines'),
+    )
+    fig.add_trace(
+        go.Scatter(x=date_list[435:-1], y=daily_positive_list[435:-1], name='April 2021', mode='lines'),
     )
 
 
