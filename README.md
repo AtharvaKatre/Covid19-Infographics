@@ -7,3 +7,5 @@ This project was developed using Django framework.
 Frontend and Css are sourced from Bootstrap.
 Data is fetched from multiple Api in Json format then cleaned, formatted and categorised using Python's Pandas Library.
 For graphs and plots Ploty Dash Components, Plotly Express, Plotly Graph Obj, Mapbox were used.
+
+[Project Details and Presentation](https://github.com/AtharvaKatre/Covid19-Infographics/blob/master/Covid-19%20tracker%20and%20data%20visualization.pdf)
